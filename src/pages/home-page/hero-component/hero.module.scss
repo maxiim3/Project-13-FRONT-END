@@ -1,0 +1,56 @@
+
+.hero {
+	position: relative;
+	height: 300px;
+	background-image: url('../../../../public/img/bank-tree.jpeg');
+	background-repeat: no-repeat;
+	background-position: 0 -50px;
+	background-size: cover;
+
+	[data-selector="content"] {
+		position: relative;
+		top: 2rem;
+		width: 200px;
+		margin: 0 auto;
+		padding: 2rem;
+		text-align: left;
+		background: white;
+
+		}
+
+	[data-selector="subtitle"] {
+		font-size: 1rem;
+		font-weight: bold;
+		margin: 0;
+		}
+
+	[data-selector="text"] {
+		font-size: 0.9rem;
+		margin-bottom: 0;
+		}
+
+	@media (min-width: 920px) {
+
+		height: 400px;
+		background-position: 0 33%;
+
+
+		[data-selector="content"] {
+			position: absolute;
+			top: 50px;
+			right: 50px;
+			width: 300px;
+			margin: 2rem;
+			}
+
+		[data-selector="subtitle"] {
+			font-size: 1.5rem;
+			}
+
+		[data-selector="text"] {
+			font-size: 1.2rem;
+			}
+
+		}
+	}
+

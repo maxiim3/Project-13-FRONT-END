@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+}
+
+.navLinks {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  text-decoration: none;
+  color: #2c3e50;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.navLinks:hover {
+  text-decoration: underline;
+  color: #42b983;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+}
+.logoWrapper img {
+  width: 200px;
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=header.module.css.map */
