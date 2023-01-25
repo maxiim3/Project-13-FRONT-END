@@ -1,21 +1,24 @@
 import React from "react"
-import $user from "./user.module.scss"
-import $shared from "../../shared/shared.module.css"
+import $profile from "./profile.module.scss"
+import $shared from "../../stylesheets/shared.module.css"
+import {useSelector} from "react-redux"
 
-export function User() {
+export default () => {
+	const {lastName, firstName, bankAccount} = useSelector((state: any) => state.user)
+
 	return (
 		<main className={$shared.mainWrapperDarkBG}>
-			<section className={$user.header}>
-				<h1>Welcome back<br />Tony Jarvis!</h1>
+			<section className={$profile.header}>
+				<h1>Welcome back<br />{firstName} {lastName}!</h1>
 				<button>Edit Name</button>
 			</section>
 			<h2 className={$shared.screenReadersOnly}>Accounts</h2>
 
 			{/*Section*/}
-			<section className={$user.section}>
+			<section className={$profile.section}>
 				<div data-selector={"content"}>
 					<h3>Argent Bank Checking (x8349)</h3>
-					<p>$2,082.79</p>
+					<p>{bankAccount.checking.balance}</p>
 					<p>Available Balance</p>
 				</div>
 				<div data-selector={"cta"}>
@@ -24,10 +27,10 @@ export function User() {
 			</section>
 
 			{/*Section*/}
-			<section className={$user.section}>
+			<section className={$profile.section}>
 				<div data-selector={"content"}>
 					<h3>Argent Bank Savings (x6712)</h3>
-					<p>$10,928.42</p>
+					<p>{bankAccount.savings.balance}</p>
 					<p>Available Balance</p>
 				</div>
 				<div data-selector={"cta"}>
@@ -36,10 +39,10 @@ export function User() {
 			</section>
 
 			{/*Section*/}
-			<section className={$user.section}>
+			<section className={$profile.section}>
 				<div data-selector={"content"}>
 					<h3>Argent Bank Credit Card (x8349)</h3>
-					<p>$184.30</p>
+					<p>{bankAccount.creditCard.balance}</p>
 					<p>Current Balance</p>
 				</div>
 				<div data-selector={"cta"}>
@@ -51,26 +54,3 @@ export function User() {
 	)
 }
 
-interface IUserData {
-	name: string
-	authentications: {
-		id: string
-		password: string
-	}
-	accounts: {
-		checking: IAccount,
-		savings: IAccount,
-		creditCard: IAccount
-	}
-}
-
-interface IAccount {
-	balance: number
-	transactions: ITransaction[]
-}
-
-interface ITransaction {
-	amount: number
-	date: Date
-	type: "deposit" | "withdrawal"
-}

@@ -1,5 +1,5 @@
 import $hero from "./hero.module.css"
-import $shared from "../../../shared/shared.module.css"
+import $shared from "../../../stylesheets/shared.module.css"
 import React from "react"
 
 export default () => (

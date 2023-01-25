@@ -1,5 +1,7 @@
-import users from "./mockUser"
+import users from "./mockUsers"
 
-export const UseMokedUser = () => {
-	const user = users[0]
+const UseMockedUser = (n: 0 | 1) => {
+	return users[n]
 }
+
+export default UseMockedUser

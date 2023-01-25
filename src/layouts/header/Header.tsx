@@ -1,53 +1,24 @@
-import React, {useState} from "react"
-import $nav from "./header.module.css"
+import React from "react"
 import {NavLink} from "react-router-dom"
-import $shared from "../../shared/shared.module.css"
+import $nav from "./header.module.css"
+import $shared from "../../stylesheets/shared.module.css"
+import {SwitchUserNavLink} from "./SwitchUserNavLink"
+import {PATHS} from "../../routes/config/PATHS"
 
 export default () => {
-	const [isConnected, setIsConnected] = useState(false)
-
 	return (
 		<header>
 			<nav className={$nav.container}>
-				<NavLink className={$nav.logoWrapper} to="/">
+				<NavLink className={$nav.logoWrapper} to={PATHS.HOME}>
 					<img
 						src="/img/argentBankLogo.png"
 						alt="Argent Bank Logo"
 					/>
 					<h1 className={$shared.screenReadersOnly}>Argent Bank</h1>
 				</NavLink>
-				<div>
-					{
-						isConnected ?
-						(<>
-							<NavLink className={$nav.navLinks} to="/user">
-								<i className="fa fa-user-circle"></i>
-								Tony
-							</NavLink>
-							<NavLink className={$nav.navLinks} to="/user"
-									 onClick={e => {
-										 e.preventDefault()
-										 setIsConnected(false)
-									 }}>
-								<i className="fa fa-sign-out"></i>
-								Sign Out
-							</NavLink>
-						</>)
-									:
-						(<>
-							<NavLink className={$nav.navLinks} to="/sign-in"
-									 onClick={e => {
-										 e.preventDefault()
-										 setIsConnected(true)
-									 }}>
-								<i className="fa fa-user-circle"></i>
-								Sign In
-							</NavLink>
-						</>)
-					}
-
-				</div>
+				<SwitchUserNavLink />
 			</nav>
 		</header>
 	)
 }
+
