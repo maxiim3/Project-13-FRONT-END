@@ -8,8 +8,11 @@ export const authSlicer = createSlice({
 
 										  },
 										  reducers: {
-											  setStatus: (state, action) => {
-												  state.isConnected = !state.isConnected
+											  logOutUser: (state) => {
+												  state.isConnected = true
+											  },
+											  logInUser: (state) => {
+												  state.isConnected = false
 											  },
 											  setToken: (state, action) => state.token = action.payload,
 										  },

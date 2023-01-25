@@ -8,7 +8,6 @@ import {useDispatch, useSelector} from "react-redux"
 export const SwitchUserNavLink = () => {
 	const {user} = useSelector((state: any) => state.user)
 
-
 	const {auth} = useSelector((state: any) => state.auth)
 
 
@@ -48,12 +47,12 @@ const NavigationLinks = (props: {text: string, path: string, icon: string}) =>
 	</NavLink>)
 }
 const SignOut = () => {
-	const {setStatus} = authSlicer.actions
+	const {logOutUser} = authSlicer.actions
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const handleLogOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		e.preventDefault()
-		dispatch(setStatus(false))
+		dispatch(logOutUser)
 		navigate(PATHS.LOGIN)
 	}
 
