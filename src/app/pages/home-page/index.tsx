@@ -5,7 +5,6 @@ import Features from "./features-component/Features"
 export default () => (
 	<main>
 		<Hero />
-		<Features/>
+		<Features />
 	</main>
-
 )
