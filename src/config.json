@@ -1,0 +1,16 @@
+{
+	"PATH": {
+		"ROOT": "/",
+		"ERROR": "/error",
+		"HOME": "/",
+		"LOGIN": "/login",
+		"PROFILE": "/profile"
+	},
+	"API": {
+		"MOCK_USER": "http://localhost:5173/mockUsers.json",
+		"GET_USERS": "http://localhost:3000/api/v1/user",
+		"LOGIN": "http://localhost:3000/api/v1/user/login",
+		"REGISTER_USER": "http://localhost:3000/api/v1/user/signup",
+		"GET_&_UPDATE_USER": "http://localhost:3000/api/v1/user/profile"
+	}
+}
