@@ -1,4 +1,4 @@
-import {InputComponent} from "../../components/InputComponent"
+import {InputComponent} from "../../components/form/components/InputComponent"
 import React, {createRef, useEffect} from "react"
 
 export function UpdateUserModal(modal: {isVisible:boolean, handleCloseModal: any}) {
