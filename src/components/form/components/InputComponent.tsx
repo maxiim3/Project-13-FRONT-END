@@ -1,36 +1,35 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import $login from "../../../pages/login-page/sass/login.module.css"
 import {useTextToCamelCase} from "../../../hooks/UseTextToCamelCase"
+import {T_FormContext} from "../context/types"
 import {useInputValidation} from "../../../hooks/UseInputValidation"
-import {ContextTypes, E_FormActions} from "../context/types"
-import {useFormContext} from "../context/useFormContext"
 
-export const InputComponent = ({thisInput}: {thisInput: ContextTypes.T_Input_Model}) => {
-	const {dispatchForm} = useFormContext()
-	const [userInput, setUserInput] = useState("")
+export const InputComponent = ({thisInput}: {thisInput: T_FormContext.inputElement}) => {
+	const [promptState, setPromptState] = useState("")
+	const [isValid, setIsValid] = useState(thisInput.isValid)
 
 	const id = useTextToCamelCase(thisInput.label)
 
-	const updateInputValidation = (e: any) => {
-		const isCheckbox = e.currentTarget.type === "checkbox"
+	useEffect(() => {
+		thisInput.isValid = isValid
+		thisInput.value = promptState
+	}, [promptState, isValid])
 
-		if (isCheckbox) {
-			setUserInput(e.currentTarget.checked)
-			dispatchForm({
-				type: E_FormActions.SET_VALUES,
-				payload: {label: thisInput.label, isValid: e.currentTarget.checked},
-			})
-			dispatchForm({type: E_FormActions.CHECK_ALL_VALUES})
-		} else {
-			setUserInput(e.currentTarget.value)
-			const res = useInputValidation(e.currentTarget, thisInput.minCharacter!)
-			dispatchForm({
-				type: E_FormActions.SET_VALUES,
-				payload: {label: thisInput.label, isValid: res},
-			})
-			dispatchForm({type: E_FormActions.CHECK_ALL_VALUES})
-		}
+	const updateInputValidation = (e: any) => {
+		const input = e.currentTarget
+		const type = input.type
+		const value = input?.value
+		const checked = input?.checked
+
+		setPromptState(prev => {
+			if (type !== "checkbox") return value
+
+			return checked.toString()
+		})
+		setIsValid(prev => useInputValidation(input))
 	}
+
+	// dispatchForm({type: E_FormActions.CHECK_ALL_VALUES})
 
 	switch (thisInput.inputType) {
 		case "checkbox":
@@ -39,21 +38,25 @@ export const InputComponent = ({thisInput}: {thisInput: ContextTypes.T_Input_Mod
 					<input
 						type="checkbox"
 						id={id}
-						defaultChecked={thisInput.isValid}
 						onChange={updateInputValidation}
+						minLength={thisInput.minCharacter}
 					/>
-					<label htmlFor={id}>{thisInput.label}</label>
+					<label htmlFor={id}>
+						{thisInput.label} {promptState}
+					</label>
 				</div>
 			)
 		default:
 			return (
 				<div className={$login.inputWrapper}>
 					<label htmlFor={id}>
-						{thisInput.label} : {userInput}
+						{thisInput.label} : {promptState}
 					</label>
 					<input
+						minLength={thisInput.minCharacter}
 						aria-roledescription={thisInput.label}
 						type={thisInput.inputType}
+						min={0}
 						id={id}
 						onChange={updateInputValidation}
 					/>

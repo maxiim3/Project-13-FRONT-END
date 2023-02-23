@@ -6,8 +6,8 @@ import {useSelector} from "react-redux"
 import {PATH} from "../../config.json"
 import {useHandleLoginForm} from "./hooks/useHandleLoginForm"
 import {useLoginFormReducer} from "./hooks/useLoginFormReducer"
-import {FormProvider} from "../../components/form/Form"
 import InputConstructor from "../../components/form/context/InputConstructor"
+import {FormProvider} from "../../components/form/Form"
 
 export const LoginPage = () => {
 	const navigate = useNavigate()
@@ -74,30 +74,16 @@ export const LoginPage = () => {
 				<FormProvider
 					inputs={[
 						new InputConstructor({
-							label: "Username",
-							minCharacter: 4,
-							inputType: "text",
-						}),
-						new InputConstructor({
-							label: "Email",
-							minCharacter: 4,
+							label: "username",
 							inputType: "email",
 						}),
-						new InputConstructor({
-							label: "Age",
-							inputType: "number",
-						}),
+
 						new InputConstructor({
 							label: "Password",
-							minCharacter: 8,
 							inputType: "password",
 						}),
 						new InputConstructor({
-							label: "Remind Me",
-							inputType: "checkbox",
-						}),
-						new InputConstructor({
-							label: "Are you okay ?",
+							label: "Remember me",
 							inputType: "checkbox",
 						}),
 					]}

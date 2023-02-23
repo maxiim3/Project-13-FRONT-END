@@ -48,10 +48,10 @@ export const ProfilePage = () => {
 	return (
 		<main className={$shared.mainWrapperDarkBG}>
 			<section className={$profile.header}>
-				<UpdateUserModal
-					isVisible={modalIsVisible}
-					handleCloseModal={closeModal}
-				/>
+				{/*<UpdateUserModal*/}
+				{/*	isVisible={modalIsVisible}*/}
+				{/*	handleCloseModal={closeModal}*/}
+				{/*/>*/}
 				<h1>
 					Welcome back
 					<br />

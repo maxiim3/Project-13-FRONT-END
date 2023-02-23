@@ -18,6 +18,8 @@ export const LoaderBuffer = (props: {children: ReactElement | ReactElement[]}) =
 	const dispatch = useDispatch()
 
 	useEffect(() => {
+		console.log(token)
+
 		if (token) {
 			setAppStat(E_STATE.LOADING)
 			getUserProfile().then(res => {
@@ -32,7 +34,8 @@ export const LoaderBuffer = (props: {children: ReactElement | ReactElement[]}) =
 		else {
 			setAppStat(E_STATE.IS_NOT_LOGGED)
 		}
-	}, [token])
+
+	}, [])
 
 	if (appStat === E_STATE.LOADING) {
 		return (
@@ -44,7 +47,7 @@ export const LoaderBuffer = (props: {children: ReactElement | ReactElement[]}) =
 		)
 	}
 	if (appStat === E_STATE.IS_NOT_LOGGED) {
-		localStorage.clear()
+		// localStorage.clear()
 	}
 
 	return (

@@ -1,15 +1,15 @@
-export function useInputValidation(input: HTMLInputElement, number: number) {
+export function useInputValidation(input: HTMLInputElement) {
 	// move in the reducer
+	const minimalLength = input.minLength
 	const parent = input.parentElement as HTMLDivElement
 	if (input.value.length !== 0) {
-		if (input.value.length < number) {
+		if (input.value.length < minimalLength) {
 			parent.dataset.validation = "error"
-			parent.dataset.message = `${input.ariaRoleDescription} length must be greater than ${number}`
+			parent.dataset.message = `${input.ariaRoleDescription} length must be greater than ${minimalLength}`
 			return false
-		}
-		else {
+		} else {
 			parent.dataset.validation = "success"
-			parent.dataset.message = `${input.ariaRoleDescription} length is greater than ${number}`
+			parent.dataset.message = `${input.ariaRoleDescription} length is greater than ${minimalLength}`
 			return true
 		}
 	}
