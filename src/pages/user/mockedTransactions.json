@@ -1,0 +1,17 @@
+[
+	{
+		"Label": "Checking",
+		"balance": 2082.79,
+		"numberOfTransactions": 8349
+	},
+	{
+		"Label": "Savings",
+		"balance": 10928.42,
+		"numberOfTransactions": 6712
+	},
+	{
+		"Label": "Credit Card",
+		"balance": 1200.0,
+		"numberOfTransactions": 8349
+	}
+]

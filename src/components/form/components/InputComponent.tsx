@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react"
-import $login from "../../../pages/login-page/sass/login.module.css"
-import {useTextToCamelCase} from "../../../hooks/UseTextToCamelCase"
-import {T_FormContext} from "../context/types"
-import {useInputValidation} from "../../../hooks/UseInputValidation"
+import $login from "../login.module.css"
+import {textToCamelCase} from "../../../utils/textToCamelCase"
+import {T_FormContext} from "../../../types/T_FormContext"
+
 
 export const InputComponent = ({thisInput}: {thisInput: T_FormContext.inputElement}) => {
 	const [promptState, setPromptState] = useState("")
 	const [isValid, setIsValid] = useState(thisInput.isValid)
 
-	const id = useTextToCamelCase(thisInput.label)
+	const id = textToCamelCase(thisInput.label)
 
 	useEffect(() => {
 		thisInput.isValid = isValid
@@ -26,7 +26,26 @@ export const InputComponent = ({thisInput}: {thisInput: T_FormContext.inputEleme
 
 			return checked.toString()
 		})
-		setIsValid(prev => useInputValidation(input))
+		setIsValid(prev => {
+			const minimalLength = input.minLength
+			const parent = input.parentElement as HTMLDivElement
+			if (input.value.length !== 0 || thisInput.response) {
+				if (input.value.length < minimalLength || thisInput.response === "error") {
+					parent.dataset.validation = "error"
+					parent.dataset.message = `${input.ariaRoleDescription} length must be greater than ${minimalLength}`
+					return false
+				} else {
+					parent.dataset.validation = "success"
+					parent.dataset.message = `${input.ariaRoleDescription} length is greater than ${minimalLength}`
+					return true
+				}
+			}
+			if (input.value.length === 0 || !thisInput.response) {
+				parent.dataset.validation = "none"
+				return false
+			}
+			return false
+		})
 	}
 
 	// dispatchForm({type: E_FormActions.CHECK_ALL_VALUES})

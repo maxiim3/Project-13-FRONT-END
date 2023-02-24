@@ -1,0 +1,87 @@
+.container {
+  box-sizing: border-box;
+  width: 300px;
+  margin: 3rem auto 0;
+  padding: 2rem;
+  background-color: white;
+}
+
+.icon {
+  font-size: 5rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  overflow: visible;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+.inputWrapper label {
+  font-weight: bold;
+  margin-left: 0.25rem;
+}
+.inputWrapper input {
+  font-size: 1.2rem;
+  overflow: visible;
+  padding: 5px;
+  transition: all 120ms ease-in-out;
+}
+.inputWrapper:has(:focus, :active) input {
+  scale: 102%;
+}
+.inputWrapper:is([data-validation=error]) {
+  margin-bottom: calc(1rem + 16px);
+}
+.inputWrapper:is([data-validation=error]):before {
+  font-size: 12px;
+  position: absolute;
+  z-index: 2;
+  bottom: -20px;
+  left: 4px;
+  content: attr(data-message);
+  color: #fd1007;
+}
+.inputWrapper:is([data-validation=error]) input {
+  border: 1px solid #fd1007;
+  border-radius: 2px;
+}
+.inputWrapper:is([data-validation=error]):has(:focus, :active) input {
+  outline: 2px solid #fd1007;
+}
+.inputWrapper:is([data-validation=success]) input {
+  border: 1px solid #0ade0a;
+  border-radius: 2px;
+}
+.inputWrapper:is([data-validation=success]):has(:focus, :active) input {
+  outline: 1px solid #0ade0a;
+}
+
+.checkBoxWrapper {
+  display: flex;
+  column-gap: 0.25rem;
+}
+
+.Button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 8px;
+  color: #fff;
+  border-color: #00bc77;
+  background-color: #00bc77;
+}
+.Button a:visited,
+.Button a {
+  text-decoration: none;
+  color: inherit;
+}
+.Button:disabled {
+  border: none;
+  background-color: #ccc;
+}
+
+/*# sourceMappingURL=auth.module.css.map */

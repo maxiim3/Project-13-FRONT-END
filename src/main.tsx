@@ -1,9 +1,8 @@
 import React from "react"
 import {createRoot} from "react-dom/client"
 import "./sass/main.css"
-import router from "./routes/routes"
+import router from "./routes/router"
 import {RouterProvider} from "react-router-dom"
-// App.jsx
 
 const rootElement = document.getElementById("root") as HTMLDivElement
 const root = createRoot(rootElement)
@@ -14,7 +13,7 @@ root.render(
 			router={router}
 			fallbackElement={<h2>Waiting</h2>}
 		/>
-	</React.StrictMode>
+	</React.StrictMode>,
 )
 
 
@@ -24,11 +23,11 @@ root.render(
 
 
 // store implementation.
-	// http service in reducer
-	// save token and user info
-  	// save transaction data
-		// mocked from public/transaction.json
-		// implement endpoint to get transaction data
-		// create YAML file to mock data
-		// optional: create endpoint to get transaction data
-		// optional:  implement Database
+// http service in reducer
+// save token and user info
+// save transaction data
+// mocked from public/transaction.json
+// implement endpoint to get transaction data
+// create YAML file to mock data
+// optional: create endpoint to get transaction data
+// optional:  implement Database

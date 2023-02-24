@@ -1,0 +1,24 @@
+// Footer
+.container {
+	display: flex;
+	justify-content: center;
+	padding: 2rem 0 1.5rem;
+	border-top: 2px solid #ccc;
+	animation: anim 800ms 1200ms ease-in-out both;
+
+	p {
+		margin: 0;
+		padding: 0;
+		}
+
+	}
+
+@keyframes anim {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1
+	;
+	}
+}

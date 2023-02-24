@@ -1,5 +1,5 @@
-export default () => {
+export default (token?: string) => {
 	return {
-		authorization: "Bearer " + localStorage.getItem("token"),
+		authorization: `Bearer ${token || localStorage.getItem("token")}`,
 	}
 }

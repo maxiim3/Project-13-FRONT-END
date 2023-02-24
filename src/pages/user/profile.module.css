@@ -1,0 +1,70 @@
+.header {
+  margin-bottom: 2rem;
+  color: #fff;
+}
+.header button {
+  font-weight: bold;
+  padding: 10px;
+  color: #fff;
+  border-color: #00bc77;
+  background-color: #00bc77;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  text-align: left;
+  border: 1px solid black;
+  background-color: #fff;
+}
+.section [data-selector=content] {
+  flex: 1;
+  width: 100%;
+}
+.section [data-selector=content] h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+.section [data-selector=content] p:first-of-type {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+.section [data-selector=content] p:last-of-type {
+  margin: 0;
+}
+.section [data-selector=cta] button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 8px;
+  color: #fff;
+  border-color: #00bc77;
+  background-color: #00bc77;
+}
+
+@media (min-width: 720px) {
+  .section {
+    flex-direction: row;
+  }
+  .section [data-selector=cta] {
+    flex: 1;
+    width: 100%;
+    flex: 0;
+  }
+  .section [data-selector=cta] button {
+    width: 200px;
+  }
+}
+
+/*# sourceMappingURL=user.module.css.map */

@@ -1,4 +1,4 @@
-import {useRandomKey} from "../../../hooks/useRandomKey"
+import {getRandomKey} from "../../../utils/getRandomKey()"
 
 export type T_TypeOfInput = "text" | "password" | "email" | "number" | "checkbox"
 export default class InputConstructor {
@@ -9,6 +9,8 @@ export default class InputConstructor {
 	protected _isValid: boolean
 	protected _value: string
 
+	public response: "success" | "error" | null = null
+
 	constructor({
 		label,
 		inputType,
@@ -17,7 +19,7 @@ export default class InputConstructor {
 		minCharacter?: number
 		inputType: T_TypeOfInput
 	}) {
-		this._id = useRandomKey()
+		this._id = getRandomKey()
 		this._label = label
 		this._inputType = inputType
 		this._isValid = inputType === "checkbox"
