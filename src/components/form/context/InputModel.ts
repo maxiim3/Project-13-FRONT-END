@@ -1,7 +1,7 @@
 import {getRandomKey} from "../../../utils/getRandomKey()"
+import {T_TypeOfInput} from "../../../types/T_TypeOfInput"
 
-export type T_TypeOfInput = "text" | "password" | "email" | "number" | "checkbox"
-export default class InputConstructor {
+export default class InputModel {
 	private readonly _id: string
 	private readonly _label: string
 	private readonly _minCharacter: number

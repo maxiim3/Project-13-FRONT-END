@@ -1,0 +1,1 @@
+export type T_TypeOfInput = "text" | "password" | "email" | "number" | "checkbox"

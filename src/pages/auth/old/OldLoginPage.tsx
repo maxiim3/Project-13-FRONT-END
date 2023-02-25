@@ -1,12 +1,12 @@
 import React from "react"
 import {Navigate, useNavigate} from "react-router-dom"
 import $shared from "../../../sass/shared.module.css"
-import $login from "../../../components/form/login.module.css"
+import $login from "../../../components/form/form.module.css"
 import {useSelector} from "react-redux"
 import {PATH} from "../../../config.json"
 import {useHandleLoginForm} from "./useHandleLoginForm"
 import {useLoginFormReducer} from "./useLoginFormReducer"
-import {useInputValidation} from "../../../hooks/UseInputValidation"
+import {useInputValidation} from "./UseInputValidation"
 
 export const LoginPage = () => {
 	const navigate = useNavigate()

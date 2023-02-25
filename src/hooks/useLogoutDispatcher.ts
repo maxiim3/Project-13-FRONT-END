@@ -1,7 +1,12 @@
 import {useDispatch} from "react-redux"
 import {A_SetAuth, A_SetUser} from "../store/store"
 
-export function useLogUserOut() {
+/**
+ * # UseLogoutDispatcher
+ * @description Hook to log user out. Uses dispatch and action creators to clear local storage and set user to null.
+ * @return {{logUserOut: () => void}}
+ */
+export function useLogoutDispatcher() {
 	const dispatch = useDispatch()
 
 	const logUserOut = () => {

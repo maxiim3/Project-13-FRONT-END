@@ -6,7 +6,7 @@ import {T_Response} from "../../../api/schema/T_Request"
 import {AxiosResponse} from "axios"
 import {PATH} from "../../../config.json"
 import getUserProfile from "../../../api/getUserProfile"
-import {useLogUserIn} from "../../../hooks/UseLogUserIn"
+import {useLoginDispatcher} from "../../../hooks/useLoginDispatcher"
 
 type T = Partial<Pick<T_LoginFormState, "rememberMe" | "username" | "password">>
 
@@ -47,7 +47,7 @@ async function submitData(formStates: T) {
 
 export function useHandleLoginForm() {
 	const navigate = useNavigate()
-	const {logUserIn} = useLogUserIn()
+	const {logUserIn} = useLoginDispatcher()
 
 	const handleValidateForm = useCallback((formStates: T) => validateData(formStates), [])
 

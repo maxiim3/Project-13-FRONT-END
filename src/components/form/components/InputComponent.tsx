@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react"
-import $login from "../login.module.css"
+import $form from "../form.module.css"
 import {textToCamelCase} from "../../../utils/textToCamelCase"
 import {T_FormContext} from "../../../types/T_FormContext"
+
 
 
 export const InputComponent = ({thisInput}: {thisInput: T_FormContext.inputElement}) => {
@@ -53,7 +54,7 @@ export const InputComponent = ({thisInput}: {thisInput: T_FormContext.inputEleme
 	switch (thisInput.inputType) {
 		case "checkbox":
 			return (
-				<div className={$login.checkBoxWrapper}>
+				<div className={$form.checkBoxWrapper}>
 					<input
 						type="checkbox"
 						id={id}
@@ -67,7 +68,7 @@ export const InputComponent = ({thisInput}: {thisInput: T_FormContext.inputEleme
 			)
 		default:
 			return (
-				<div className={$login.inputWrapper}>
+				<div className={$form.inputWrapper}>
 					<label htmlFor={id}>
 						{thisInput.label} : {promptState}
 					</label>

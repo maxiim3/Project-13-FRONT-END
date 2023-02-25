@@ -1,5 +1,5 @@
 import {T_ArrayOfInputs} from "./T_ArrayOfInputs"
-import InputConstructor from "../components/form/context/InputConstructor"
+import InputModel from "../components/form/context/InputModel"
 
 //
 // type setValues = {
@@ -13,7 +13,7 @@ import InputConstructor from "../components/form/context/InputConstructor"
 // }
 
 export declare namespace T_FormContext  {
-	type inputElement = InputConstructor
+	type inputElement = InputModel
 	// type dispatchedActions = setValues | checkValues
 	type inputCollection = T_ArrayOfInputs
 
