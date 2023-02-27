@@ -1,13 +1,17 @@
 .formContainer {
-	fieldset {
+	fieldset { // reset
 		position: relative;
+		margin: 0;
+		padding: 0;
 		border: none;
 	}
 
-	legend {
-		//display: none;
+	legend {  // reset
 		position: absolute;
 		visibility: hidden;
+		//display: none;
+		margin: 0;
+		padding: 0;
 		//top: 0;
 		//left: 0;
 	}
@@ -85,7 +89,7 @@
 	column-gap: 0.25rem;
 }
 
-.Button {
+.submitButton {
 	// Send Button
 	font-size: 1.1rem;
 	font-weight: bold;

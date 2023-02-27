@@ -1,10 +1,14 @@
 .formContainer fieldset {
   position: relative;
+  margin: 0;
+  padding: 0;
   border: none;
 }
 .formContainer legend {
   position: absolute;
   visibility: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .inputWrapper {
@@ -62,7 +66,7 @@
   column-gap: 0.25rem;
 }
 
-.Button {
+.submitButton {
   font-size: 1.1rem;
   font-weight: bold;
   display: block;
@@ -74,16 +78,16 @@
   border-color: #00bc77;
   background-color: #00bc77;
 }
-.Button:active {
+.submitButton:active {
   transition: background-color 1ms 0ms linear;
   background-color: gray;
 }
-.Button a:visited,
-.Button a {
+.submitButton a:visited,
+.submitButton a {
   text-decoration: none;
   color: inherit;
 }
-.Button:disabled {
+.submitButton:disabled {
   border: none;
   background-color: #ccc;
 }

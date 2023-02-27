@@ -3,16 +3,16 @@
 	min-height: 100vh;
 	grid-auto-rows: 60px auto 60px;
 
-	header {
+	> header {
 		max-height: 100px;
 		animation: anim-top 800ms 1800ms ease-in-out both;
 	}
 
-	main {
+	> main {
 		align-self: stretch;
 	}
 
-	footer {
+	> footer {
 		align-self: end;
 		animation: anim-bottom 450ms 800ms ease-in-out both;
 	}
@@ -26,11 +26,12 @@
 		transform: translateY(0);
 	}
 }
+
 @keyframes anim-bottom {
 	0% {
 		transform: translateY(100%);
-		}
+	}
 	100% {
 		transform: translateY(0);
-		}
 	}
+}

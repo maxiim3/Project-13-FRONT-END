@@ -3,14 +3,14 @@
   min-height: 100vh;
   grid-auto-rows: 60px auto 60px;
 }
-.wrapper header {
+.wrapper > header {
   max-height: 100px;
   animation: anim-top 800ms 1800ms ease-in-out both;
 }
-.wrapper main {
+.wrapper > main {
   align-self: stretch;
 }
-.wrapper footer {
+.wrapper > footer {
   align-self: end;
   animation: anim-bottom 450ms 800ms ease-in-out both;
 }
@@ -32,4 +32,4 @@
   }
 }
 
-/*# sourceMappingURL=layout.module.sass.map */
+/*# sourceMappingURL=layout.module.css.map */

@@ -14,4 +14,8 @@ body {
   margin: 0;
 }
 
-/*# sourceMappingURL=main.sass.map */
+button:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */

@@ -29,7 +29,7 @@ export function Form(props: {
 					/>
 				))}
 				<button
-					className={$form.Button}
+					className={$form.submitButton}
 					onClick={handleOnSubmit}>
 					CLICK
 				</button>

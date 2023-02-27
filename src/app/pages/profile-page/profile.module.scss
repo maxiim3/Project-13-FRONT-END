@@ -3,24 +3,17 @@
 .header {
 	margin-bottom: 2rem;
 	color: #fff;
+}
 
-	button {
-		font-weight: bold;
-		padding: 10px;
-		color: #fff;
-		border-color: #00bc77;
-		background-color: #00bc77;
-		}
-	}
+.button {
+	font-weight: bold;
+	padding: 10px;
+	color: #fff;
+	border-color: #00bc77;
+	background-color: #00bc77;
+}
 
-
-@mixin fullWidth {
-	flex: 1;
-	width: 100%;
-	}
-
-
-.section {
+.transactionWrapper {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -34,23 +27,26 @@
 	background-color: #fff;
 
 	[data-selector="content"] {
-		@include fullWidth;
+		flex: 1;
+		width: 100%;
+
 		h3 {
 			font-size: 1rem;
 			font-weight: normal;
 			margin: 0;
 			padding: 0;
+		}
 
-			}
 		p:first-of-type {
 			font-size: 2.5rem;
 			font-weight: bold;
 			margin: 0;
-			}
+		}
+
 		p:last-of-type {
 			margin: 0;
-			}
 		}
+	}
 
 	[data-selector="cta"] {
 		button {
@@ -63,24 +59,118 @@
 			color: #fff;
 			border-color: #00bc77;
 			background-color: #00bc77;
-			}
 		}
 	}
 
-// Responsive
+	// Responsive
 
-@media (min-width: 720px) {
-	.section {
+	@media (min-width: 720px) {
 		flex-direction: row;
 
 		[data-selector="cta"] {
-			@include fullWidth;
 			flex: 0;
+			width: 100%;
 
 			button {
 				width: 200px;
-				}
 			}
 		}
 	}
+}
 
+.modal {
+	$timing: 450ms;
+	width: 250px;
+	height: 500px;
+	animation: modalFade $timing 0ms ease-in-out both;
+	//box-shadow: 0 10px 25px rgb(0 0 0 /0.4);
+	border: 1px solid rgba(144, 144, 144, 0.7);
+
+	&::backdrop {
+		animation: backdropAnim 650ms 0ms ease-in-out both;
+	}
+
+	header {
+		display: flex;
+		justify-content: end;
+		width: 100%;
+
+		button {
+			border: none;
+			border-radius: 2px;
+			width : 33px;
+			height: 33px;
+
+			i {
+				font-size: 20px;
+				color: #868383
+				}
+		}
+	}
+
+	&:is([data-closing="true"]) {
+		& {
+			animation: modalFadeOut 450ms 0ms ease-in-out both;
+		}
+
+		&::backdrop {
+			animation: fadeOut 650ms 150ms ease-in-out both;
+		}
+	}
+}
+
+@keyframes modalFade {
+	0% {
+		opacity: 0;
+		scale: 130%;
+	}
+	65% {
+		scale: 0.9;
+		box-shadow: 0 0px 0px rgb(0 0 0 /0.4);
+	}
+	100% {
+		opacity: 100%;
+		scale: 1;
+		box-shadow: 0 10px 45px 10px rgb(0 0 0 /0.4);
+	}
+}
+
+@keyframes modalFadeOut {
+	0% {
+		opacity: 100%;
+		scale: 1;
+
+		box-shadow: 0 0px 0px rgb(0 0 0 /0.4);
+	}
+	65% {
+		scale: 0.9;
+		box-shadow: 0 10px 45px 10px rgb(0 0 0 /0.4);
+	}
+	100% {
+		opacity: 0;
+		scale: 130%;
+	}
+}
+
+@keyframes backdropAnim {
+	0% {
+		backdrop-filter: blur(0%);
+		background: rgb(255 255 255 /0);
+	}
+
+	100% {
+		backdrop-filter: blur(7%);
+		background: rgb(255 255 255 /0.7);
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		backdrop-filter: blur(7%);
+		background: rgb(255 255 255 /0.7);
+	}
+	100% {
+		backdrop-filter: blur(0%);
+		background: rgb(255 255 255 /0);
+	}
+}

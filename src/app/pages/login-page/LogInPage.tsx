@@ -1,7 +1,7 @@
 import React, {useMemo} from "react"
 import {PATH} from "../../../config.json"
 import {Navigate} from "react-router-dom"
-import $login from "./components/login.module.scss"
+import $login from "./login.module.scss"
 import {inputFactory} from "../../components/form/factory/InputFactory"
 import {Form} from "../../components/form/Form"
 import {MainContainer} from "../../containers/Main/MainContainer"
@@ -10,7 +10,7 @@ import {useSignIn} from "./hooks/useSignIn"
 const email = inputFactory({label: "Username", inputType: "email"})
 const password = inputFactory({label: "Password", inputType: "password"})
 const checkbox = inputFactory({label: "Remember me", inputType: "checkbox"})
-export const SignInPage = () => {
+export const LogInPage = () => {
 	const inputCollection = useMemo(() => [email, password, checkbox], [])
 
 	const {navigate, handleRequestLogin, isConnected} = useSignIn(inputCollection)
