@@ -11,13 +11,13 @@ import {SetAuth} from "../auth/actions/setAuth"
  * @example const {logUserIn} = useLoginDispatcher()
  * @example logUserIn(profile-page)
  */
-export function useLoginDispatcher() {
+export function useUpdateUserDispatcher() {
 	const dispatch = useDispatch()
 
-	const logUserIn = (user: T_UserSchema_From_API) => {
+	const updateUser = (user:T_UserSchema_From_API) => {
 		dispatch(SetUser(user))
 		dispatch(SetAuth(true))
 	}
 
-	return {logUserIn}
+	return {updateUser}
 }

@@ -1,37 +1,40 @@
 import {T_InputFactory} from "../types/T_InputFactory"
 import React from "react"
 
-export const InputDefault = (props: {
-	id: string
-	minLength: number
-	label: string
-	inputType: T_InputFactory.typesOfInput
+export const InputDefault = ({
+	input,
+	value,
+	onChange,
+}: {
+	input: T_InputFactory.InputModel
 	value: string
 	onChange: (e: any) => void
 }) => (
 	<input
-		minLength={props.minLength}
-		aria-roledescription={props.label}
-		role={props.label}
-		type={props.inputType}
+		minLength={input.minLength}
+		aria-roledescription={input.label}
+		role={input.label}
+		type={input.inputType}
 		inputMode={
-			props.inputType === "email"
+			input.inputType === "email"
 				? "email"
-				: props.inputType === "number"
+				: input.inputType === "number"
 				? "numeric"
 				: "text"
 		}
 		required={true}
 		autoComplete={
-			props.inputType === "email"
+			input.inputType === "email"
 				? "email"
-				: props.inputType === "password"
+				: input.inputType === "password"
 				? "current-password"
 				: "on"
 		}
+		placeholder={input.placeholder}
+		aria-placeholder={input.placeholder}
 		min={0}
-		value={props.value}
-		id={props.id}
-		onChange={props.onChange}
+		value={value}
+		id={input.id}
+		onChange={onChange}
 	/>
 )

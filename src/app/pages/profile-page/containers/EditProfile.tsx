@@ -1,7 +1,10 @@
-import React, {RefObject, useMemo, useRef} from "react"
+import React, {useMemo} from "react"
 import {Form} from "../../../components/form/Form"
 import {inputFactory} from "../../../components/form/factory/InputFactory"
 import $style from "../profile.module.scss"
+import {useEditProfile} from "../hooks/useEditProfile"
+import {Modal} from "../../../containers/modal/Modal"
+import {useModal} from "../../../containers/modal/useModal"
 
 interface EditProfileProps {
 	firstName: string
@@ -19,55 +22,37 @@ const lastNameInput = inputFactory({
 	inputType: "text",
 })
 
-type T_ModalProps = {
-	ref: React.RefObject<HTMLDivElement>
-	children: JSX.Element | Array<JSX.Element>
-}
-
-function Modal({ref, children}: T_ModalProps) {
-	return {children}
-}
-
 export function EditProfile({firstName, lastName}: EditProfileProps) {
-	const inputCollection = useMemo(() => [firstNameInput, lastNameInput], [])
-	const modalRef = useRef() as RefObject<HTMLDialogElement>
+	const inputCollection = useMemo(() => {
+		firstNameInput.setPlaceholder(firstName)
+		lastNameInput.setPlaceholder(lastName)
+		return [firstNameInput, lastNameInput]
+	}, [firstName, lastName])
 
-	// todo add accessibility
+	const {handleUpdateProfile} = useEditProfile(inputCollection)
+	const {modalRef, closeModal, openModal} = useModal()
+
 	return (
 		<>
 			<button
 				className={$style.button}
-				onClick={() => modalRef.current && modalRef.current.showModal()}>
+				onClick={openModal}>
 				Edit Name
 			</button>
-			<dialog
-				className={$style.modal}
-				// aria-expanded={isVisible} // todo figure out accessibility for open/close
-				aria-modal={"true"}
-				// role={"dialog"}
-
-				ref={modalRef}>
-				<header>
-					<button
-						className={$style.closeModalBtn}
-						onClick={() => {
-							modalRef.current!.dataset.closing = "true"
-							setTimeout(() => {
-								modalRef.current && modalRef.current.close()
-								modalRef.current!.dataset.closing = "false"
-							}, 850)
-						}}>
-						<i className="fa fa-close" />
-					</button>
-				</header>
-
+			<Modal
+				modalRef={modalRef}
+				onClose={closeModal}>
 				<Form
 					description={""}
 					title={"Edit Profile"}
 					inputCollection={inputCollection}
-					handleSubmit={() => console.log("Handle something...")}
+					buttonLabel={"Update"}
+					handleSubmit={e => {
+						handleUpdateProfile(e).then(r => r)
+						closeModal()
+					}}
 				/>
-			</dialog>
+			</Modal>
 		</>
 	)
 }

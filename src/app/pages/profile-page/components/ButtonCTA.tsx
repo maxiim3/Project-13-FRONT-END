@@ -1,9 +1,9 @@
 import React from "react"
 
-export function ButtonCTA() {
+export function ButtonCTA({onOpen}:{onOpen: () => void}) {
 	return (
 		<div data-selector={"cta"}>
-			<button>View transactions</button>
+			<button onClick={onOpen}>View transactions</button>
 		</div>
 	)
 }

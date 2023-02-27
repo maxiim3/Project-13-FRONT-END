@@ -15,27 +15,32 @@ export function inputFactory(data: T_InputFactory.params) {
 	}
 	return {
 		id: getRandomKey(),
-		label: data.label,
 		inputType: data.inputType,
-		slug: textToCamelCase(data.label),
-		isValid: data.inputType === "checkbox",
-		minLength: data.minLength || defaultMinimumCharacter(data.inputType),
 		inputValue: "",
+		isValid: data.inputType === "checkbox",
+		label: data.label,
+		minLength: data.minLength || defaultMinimumCharacter(data.inputType),
+		placeholder: data?.placeholder || "",
 		response: {
 			status: "none",
 			message: "",
 		},
-		setValue: function(value: string) {
-			this.inputValue = value
-			return value
-		},
 		setIsValid: function(value: boolean) {
 			this.isValid = value
+			return value
+		},
+		setPlaceholder: function(value: string) {
+			this.placeholder = value
 			return value
 		},
 		setResponse: function(value: T_InputFactory.response) {
 			this.response = value
 			return value
 		},
+		setValue: function(value: string) {
+			this.inputValue = value
+			return value
+		},
+		slug: textToCamelCase(data.label),
 	} as T_InputFactory.InputModel
 }

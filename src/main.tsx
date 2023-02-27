@@ -24,7 +24,7 @@ root.render(
 // http service in reducer
 // save token and profile-page info
 // save transaction data
-// mocked from public/transaction.json
+// mock from public/transaction.json
 // implement endpoint to get transaction data
 // create YAML file to mock data
 // optional: create endpoint to get transaction data

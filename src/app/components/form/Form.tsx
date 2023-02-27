@@ -9,6 +9,7 @@ export function Form(props: {
 	inputCollection: T_InputFactory.InputHydratation
 	description: string
 	title: string
+	buttonLabel?:string
 	handleSubmit: (e: any) => void
 }) {
 	const {formRef, handleOnSubmit} = useForm(props.inputCollection)
@@ -31,7 +32,7 @@ export function Form(props: {
 				<button
 					className={$form.submitButton}
 					onClick={handleOnSubmit}>
-					CLICK
+					{props.buttonLabel || "CLICK"}
 				</button>
 			</fieldset>
 		</form>

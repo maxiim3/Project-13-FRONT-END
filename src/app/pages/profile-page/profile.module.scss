@@ -1,4 +1,36 @@
 // User Profile Styles
+main:has([aria-label="profile page wrapper"]) {
+	overflow: hidden;
+	animation: fadeIn 650ms 100ms ease-in-out both;
+
+	.transactionWrapper:nth-of-type(1) {
+		animation: fadeIn 650ms 250ms ease-in-out both;
+	}
+
+	.transactionWrapper:nth-of-type(2) {
+		animation: fadeIn 650ms 450ms ease-in-out both;
+	}
+
+	.transactionWrapper:nth-of-type(3) {
+		animation: fadeIn 650ms 650ms ease-in-out both;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+
+		transform: translateX(100%);
+	}
+	50% {
+		filter: blur(3px);
+	}
+	100% {
+		opacity: 1;
+		filter: blur(0);
+		transform: translateX(0);
+	}
+}
 
 .header {
 	margin-bottom: 2rem;
@@ -75,102 +107,5 @@
 				width: 200px;
 			}
 		}
-	}
-}
-
-.modal {
-	$timing: 450ms;
-	width: 250px;
-	height: 500px;
-	animation: modalFade $timing 0ms ease-in-out both;
-	//box-shadow: 0 10px 25px rgb(0 0 0 /0.4);
-	border: 1px solid rgba(144, 144, 144, 0.7);
-
-	&::backdrop {
-		animation: backdropAnim 650ms 0ms ease-in-out both;
-	}
-
-	header {
-		display: flex;
-		justify-content: end;
-		width: 100%;
-
-		button {
-			border: none;
-			border-radius: 2px;
-			width : 33px;
-			height: 33px;
-
-			i {
-				font-size: 20px;
-				color: #868383
-				}
-		}
-	}
-
-	&:is([data-closing="true"]) {
-		& {
-			animation: modalFadeOut 450ms 0ms ease-in-out both;
-		}
-
-		&::backdrop {
-			animation: fadeOut 650ms 150ms ease-in-out both;
-		}
-	}
-}
-
-@keyframes modalFade {
-	0% {
-		opacity: 0;
-		scale: 130%;
-	}
-	65% {
-		scale: 0.9;
-		box-shadow: 0 0px 0px rgb(0 0 0 /0.4);
-	}
-	100% {
-		opacity: 100%;
-		scale: 1;
-		box-shadow: 0 10px 45px 10px rgb(0 0 0 /0.4);
-	}
-}
-
-@keyframes modalFadeOut {
-	0% {
-		opacity: 100%;
-		scale: 1;
-
-		box-shadow: 0 0px 0px rgb(0 0 0 /0.4);
-	}
-	65% {
-		scale: 0.9;
-		box-shadow: 0 10px 45px 10px rgb(0 0 0 /0.4);
-	}
-	100% {
-		opacity: 0;
-		scale: 130%;
-	}
-}
-
-@keyframes backdropAnim {
-	0% {
-		backdrop-filter: blur(0%);
-		background: rgb(255 255 255 /0);
-	}
-
-	100% {
-		backdrop-filter: blur(7%);
-		background: rgb(255 255 255 /0.7);
-	}
-}
-
-@keyframes fadeOut {
-	0% {
-		backdrop-filter: blur(7%);
-		background: rgb(255 255 255 /0.7);
-	}
-	100% {
-		backdrop-filter: blur(0%);
-		background: rgb(255 255 255 /0);
 	}
 }

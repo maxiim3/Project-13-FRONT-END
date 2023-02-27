@@ -1,10 +1,10 @@
 import {T_AuthSlice} from "../../types/t_AuthSlice"
-import getUserProfile from "../../../api/getUserProfile"
 import {pipe} from "../../../utils/pipe"
 import {initialState} from "../state/initialState"
 import {getTokenFromSessionStorage} from "../../../utils/getTokenFromSessionStorage"
 import {checkTokenStructure} from "../../../utils/checkTokenStructure"
 import {decodeToken} from "../../../utils/decodeToken"
+import userService from "../../../api/user/userService"
 
 /**
  * # handleAuthOnLoad
@@ -20,8 +20,7 @@ export const handleAuthOnLoad = async (): Promise<T_AuthSlice> => {
 	const noUser = {auth: initialState}
 	try {
 		const token = pipe([checkTokenStructure, decodeToken], getTokenFromSessionStorage()) // return token or an error using pipe function composition
-		console.log(token)
-		const response = await getUserProfile()
+		const response = await userService.getUserProfile()
 		const user = response.data.body
 		return {
 			auth: {

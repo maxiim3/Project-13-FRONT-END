@@ -5,6 +5,7 @@ export declare namespace T_InputFactory {
 		label: string
 		inputType: typesOfInput
 		minLength?: number
+		placeholder?: string
 	}
 	type response = {
 		status: "success" | "error" | "none"
@@ -20,23 +21,25 @@ export declare namespace T_InputFactory {
 		inputValue: string
 		id: string
 		response: response
-		setValue: (value: string) => string
-		setIsValid: (value: boolean) => boolean
-		setResponse: (value: response) => response
+		placeholder: string
+		setValue: (value: string) => typeof value
+		setIsValid: (value: boolean) => typeof value
+		setResponse: (value: response) => typeof value
+		setPlaceholder: (value: string) => typeof value
 	}
 
 	type actionReducer =
 		| {
-		type: "setIsValid"
-		payload: boolean
-	}
+				type: "setIsValid"
+				payload: boolean
+		  }
 		| {
-		type: "setInputValue"
-		payload: string
-	}
+				type: "setInputValue"
+				payload: string
+		  }
 		| {
-		type: "setResponse"
-		payload: response
-	}
+				type: "setResponse"
+				payload: response
+		  }
 	type InputHydratation = Array<InputModel>
 }

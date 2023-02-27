@@ -1,17 +1,21 @@
 import React from "react"
+import {T_InputFactory} from "../types/T_InputFactory"
 
-export const InputCheckbox = (props: {
-	id: string
-	minLength: number
+export const InputCheckbox = ({
+	input,
+	value,
+	onChange,
+}: {
+	input: T_InputFactory.InputModel
 	value: string
 	onChange: (e: any) => void
 }) => (
 	<input
 		type="checkbox"
-		id={props.id}
-		onChange={props.onChange}
-		minLength={props.minLength}
-		value={props.value}
+		id={input.id}
+		onChange={onChange}
+		minLength={input.minLength}
+		value={value}
 		role={"type"}
 		aria-label={"Remember Me"}
 		inputMode={"none"}

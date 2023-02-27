@@ -2,8 +2,7 @@ import {inputFactory} from "../../../components/form/factory/InputFactory"
 import {useNavigate} from "react-router-dom"
 import {useSelector} from "react-redux"
 import {useLoginDispatcher} from "../../../../store/hooks/useLoginDispatcher"
-import logInUser from "../../../../api/logInUser"
-import getUserProfile from "../../../../api/getUserProfile"
+import userService from "../../../../api/user/userService"
 import {PATH} from "../../../../config.json"
 
 export const useSignIn = ([email, password, checkbox]: Array<ReturnType<typeof inputFactory>>) => {
@@ -19,7 +18,7 @@ export const useSignIn = ([email, password, checkbox]: Array<ReturnType<typeof i
 		const rememberMe = checkbox.inputValue === "true"
 
 		try {
-			const loginResponse = await logInUser(payload)
+			const loginResponse = await userService.logInUser(payload)
 			console.log(loginResponse)
 			const status = "success"
 			const message = "Login successful"
@@ -27,7 +26,7 @@ export const useSignIn = ([email, password, checkbox]: Array<ReturnType<typeof i
 			email.setResponse({status, message})
 			password.setResponse({status, message})
 
-			const userProfileResponse = await getUserProfile(token)
+			const userProfileResponse = await userService.getUserProfile(token)
 			console.log(userProfileResponse)
 			const user = userProfileResponse.data.body
 

@@ -1,4 +1,4 @@
-import React, {useRef} from "react"
+import React, {useMemo} from "react"
 import $profile from "./profile.module.scss"
 import {Navigate} from "react-router-dom"
 import {PATH} from "../../../config.json"
@@ -10,20 +10,22 @@ import {EditProfile} from "./containers/EditProfile"
 
 export const ProfilePage = () => {
 	const {isConnected, user, navigate} = useProfileInformation()
-
+	console.log("Profile Page reloaded")
 	if (!isConnected) {
 		navigate(PATH.LOGIN)
 		return <Navigate to={PATH.LOGIN} />
 	}
 
-	const {lastName, firstName} = useRef(user).current
+	const {lastName, firstName} = useMemo(() => {
+		return user
+	}, [user])
 
 	// todo add accessibility
 	return (
 		<MainContainer
 			ariaDescription={`Welcome to your profile page ${firstName}!`}
 			ariaLabel={"User Profile Page"}>
-			<>
+			<div aria-label={"profile page wrapper"}>
 				<section className={$profile.header}>
 					<Header
 						firstName={firstName}
@@ -35,7 +37,7 @@ export const ProfilePage = () => {
 					/>
 				</section>
 				<TransactionsContainer />
-			</>
+			</div>
 		</MainContainer>
 	)
 }

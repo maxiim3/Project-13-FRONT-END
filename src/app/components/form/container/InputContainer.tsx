@@ -16,19 +16,17 @@ export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
 			<fieldset className={$form.checkBoxWrapper}>
 				<legend>Check to {input.label}</legend>
 				<InputCheckbox
-					id={input.id}
+					input={input}
+					value={prompt}
 					onChange={e => {
 						const isChecked = e.target.checked ? "true" : "false"
 						setPrompt(isChecked)
 						input.setValue(isChecked)
 					}}
-					minLength={input.minLength}
-					value={prompt}
 				/>
 
 				<Label
-					id={input.id}
-					label={input.label}
+					input={input}
 					value={prompt}
 				/>
 			</fieldset>
@@ -38,18 +36,14 @@ export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
 		<fieldset className={$form.inputWrapper}>
 			<legend>Enter your {input.label}</legend>
 			<Label
-				id={input.id}
-				label={input.label}
+				input={input}
 				value={prompt}
 			/>
 
 			<InputDefault
-				id={input.id}
-				onChange={e => updateValue(e, input)}
-				minLength={input.minLength}
+				input={input}
 				value={prompt}
-				label={input.label}
-				inputType={input.inputType}
+				onChange={e => updateValue(e, input)}
 			/>
 		</fieldset>
 	)
