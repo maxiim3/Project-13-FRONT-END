@@ -1,5 +1,6 @@
 import {useDispatch} from "react-redux"
-import {A_SetAuth, A_SetUser} from "../../store/store"
+import {SetUser} from "../auth/actions/SetUser"
+import {SetAuth} from "../auth/actions/setAuth"
 
 /**
  * # UseLogoutDispatcher
@@ -11,8 +12,8 @@ export function useLogoutDispatcher() {
 
 	const logUserOut = () => {
 		localStorage.clear()
-		dispatch(A_SetUser(null))
-		dispatch(A_SetAuth(false))
+		dispatch(SetUser(null))
+		dispatch(SetAuth(false))
 	}
 
 	return {logUserOut}

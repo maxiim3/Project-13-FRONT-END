@@ -1,4 +1,4 @@
-import {useLogoutDispatcher} from "../../../hooks/useLogoutDispatcher"
+import {useLogoutDispatcher} from "../../../../store/hooks/useLogoutDispatcher"
 import {useNavigate} from "react-router-dom"
 import React, {useCallback} from "react"
 import {PATH} from "../../../../config.json"

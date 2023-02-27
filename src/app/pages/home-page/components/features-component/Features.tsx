@@ -1,7 +1,7 @@
 import $features from "./features.module.css"
 import Items from "./Items"
 import React from "react"
-import {getRandomKey} from "../../../../utils/getRandomKey()"
+import {getRandomKey} from "../../../../../utils/getRandomKey()"
 import $sro from "../../../../stylesheet/sro.module.scss"
 
 export default () => {

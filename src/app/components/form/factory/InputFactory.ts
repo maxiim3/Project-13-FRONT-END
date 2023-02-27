@@ -1,6 +1,6 @@
 import {T_InputFactory} from "../types/T_InputFactory"
-import {getRandomKey} from "../../../utils/getRandomKey()"
-import {textToCamelCase} from "../../../utils/textToCamelCase"
+import {getRandomKey} from "../../../../utils/getRandomKey()"
+import {textToCamelCase} from "../../../../utils/textToCamelCase"
 
 export function inputFactory(data: T_InputFactory.params) {
 	const defaultMinimumCharacter = (inputType: T_InputFactory.typesOfInput) => {

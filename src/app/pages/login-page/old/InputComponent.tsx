@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import $form from "../../../components/form/sass/form.module.css"
-import {textToCamelCase} from "../../../utils/textToCamelCase"
+import {textToCamelCase} from "../../../../utils/textToCamelCase"
 import {T_FormContext} from "../../../types/T_FormContext"
 
 

@@ -1,6 +1,6 @@
 import {T_InputFactory} from "./types/T_InputFactory"
 import React from "react"
-import {getRandomKey} from "../../utils/getRandomKey()"
+import {getRandomKey} from "../../../utils/getRandomKey()"
 import $form from "./sass/form.module.css"
 import {InputContainer} from "./container/InputContainer"
 import {useForm} from "./hooks/useForm"

@@ -1,4 +1,4 @@
-import {getRandomKey} from "../../../utils/getRandomKey()"
+import {getRandomKey} from "../../../../utils/getRandomKey()"
 import {T_TypeOfInput} from "../../../types/T_TypeOfInput"
 
 export default class InputModel {

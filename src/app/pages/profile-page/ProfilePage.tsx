@@ -6,7 +6,7 @@ import {Navigate, useNavigate} from "react-router-dom"
 import {PATH} from "../../../config.json"
 import {TransactionElement} from "./components/TransactionElement"
 import transactions from "./mockedTransactions.json"
-import {getRandomKey} from "../../utils/getRandomKey()"
+import {getRandomKey} from "../../../utils/getRandomKey()"
 import {Modal} from "./components/Modal"
 import {MainContainer} from "../../containers/Main/MainContainer"
 

@@ -2,7 +2,7 @@ import React from "react"
 import $error from "./error.module.scss"
 import {Link, Route} from "react-router-dom"
 import {PATH} from "../../../config.json"
-import {getRandomKey} from "../../utils/getRandomKey()"
+import {getRandomKey} from "../../../utils/getRandomKey()"
 import {MainContainer} from "../../containers/Main/MainContainer"
 
 

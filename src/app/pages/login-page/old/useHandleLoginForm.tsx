@@ -6,7 +6,7 @@ import {T_Response} from "../../../../api/schema/T_Request"
 import {AxiosResponse} from "axios"
 import {PATH} from "../../../../config.json"
 import getUserProfile from "../../../../api/getUserProfile"
-import {useLoginDispatcher} from "../../../hooks/useLoginDispatcher"
+import {useLoginDispatcher} from "../../../../store/hooks/useLoginDispatcher"
 
 type T = Partial<Pick<T_LoginFormState, "rememberMe" | "username" | "password">>
 
@@ -26,7 +26,8 @@ function validateData({rememberMe, username, password}: T) {
 		}
 
 		return {isValid: true, data: {rememberMe, username, password}}
-	} catch (e) {
+	}
+	catch (e) {
 		console.error("Error during validation", e)
 		return {isValid: false, data: null}
 	}
@@ -35,11 +36,12 @@ function validateData({rememberMe, username, password}: T) {
 async function submitData(formStates: T) {
 	try {
 		const response: AxiosResponse<T_Response> = await logInUser({
-			email: formStates.username,
-			password: formStates.password,
-		})
+																		email: formStates.username,
+																		password: formStates.password,
+																	})
 		return {isSuccess: true, data: response}
-	} catch (e) {
+	}
+	catch (e) {
 		console.error("Error during submit", e)
 		return {isSuccess: false, data: null}
 	}
@@ -60,7 +62,7 @@ export function useHandleLoginForm() {
 				preventScrollReset: false,
 				relative: "route",
 			}),
-		[]
+		[],
 	)
 	const validateAndSubmit = useCallback(
 		(e: React.MouseEvent<HTMLButtonElement>, {rememberMe, username, password}: T) => {
@@ -68,7 +70,7 @@ export function useHandleLoginForm() {
 			const {isValid, data} = handleValidateForm({rememberMe, username, password})
 			if (isValid && data) {
 				const response = handleSubmitForm({password, username, rememberMe})
-				response.then(res => {
+				response.then((res) => {
 					console.log(res)
 					if (res.isSuccess) {
 						console.log("success")
@@ -89,7 +91,7 @@ export function useHandleLoginForm() {
 				})
 			}
 		},
-		[]
+		[],
 	)
 	return {validateAndSubmit}
 }

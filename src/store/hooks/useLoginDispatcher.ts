@@ -1,6 +1,7 @@
 import {useDispatch} from "react-redux"
 import {T_UserSchema_From_API} from "../../api/schema/T_UserSchema"
-import {A_SetAuth, A_SetUser} from "../../store/store"
+import {SetUser} from "../auth/actions/SetUser"
+import {SetAuth} from "../auth/actions/setAuth"
 
 /**
  * # UseLoginDispatcher
@@ -14,8 +15,8 @@ export function useLoginDispatcher() {
 	const dispatch = useDispatch()
 
 	const logUserIn = (user: T_UserSchema_From_API) => {
-		dispatch(A_SetUser(user))
-		dispatch(A_SetAuth(true))
+		dispatch(SetUser(user))
+		dispatch(SetAuth(true))
 	}
 
 	return {logUserIn}

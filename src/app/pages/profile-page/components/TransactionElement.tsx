@@ -1,7 +1,7 @@
 import React from "react"
 import {T_Account} from "../../../types/T_Account"
 import $profile from "../profile.module.scss"
-import {textToCamelCase} from "../../../utils/textToCamelCase"
+import {textToCamelCase} from "../../../../utils/textToCamelCase"
 
 export function TransactionElement(account: T_Account) {
 	const id = textToCamelCase(account.Label)
