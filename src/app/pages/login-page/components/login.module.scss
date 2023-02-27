@@ -1,0 +1,27 @@
+.container {
+	box-sizing: border-box;
+	width: 300px;
+	margin: 3rem auto 0;
+	padding: 2rem;
+	animation: anim 450ms 150ms ease-in-out both;
+	background-color: white;
+
+	input {
+		display: block;
+
+		}
+
+}
+
+.icon {
+	font-size: 5rem;
+}
+
+@keyframes anim {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

@@ -1,14 +1,14 @@
-import Home from "../pages/home/Home"
-import {LoginPage} from "../pages/auth/LoginPage"
-import {ProfilePage} from "../pages/user/ProfilePage"
-import Error from "../pages/error/Error"
+import Home from "../app/pages/home-page/Home"
+import {SignInPage} from "../app/pages/login-page/SignInPage"
+import {ProfilePage} from "../app/pages/profile-page/ProfilePage"
+import Error from "../app/pages/error-page/Error"
 import React from "react"
 import {createBrowserRouter, createRoutesFromElements, Navigate, Route} from "react-router-dom"
-import {getRandomKey} from "../utils/getRandomKey()"
+import {getRandomKey} from "../app/utils/getRandomKey()"
 import {PATH} from "../config.json"
 import {Store} from "../store/store"
 import {Provider} from "react-redux"
-import {AuthStateHandler} from "../components/AuthStateHandler"
+import {LayoutContainer} from "../app/containers/layout/LayoutContainer"
 
 export default createBrowserRouter(
 	createRoutesFromElements(
@@ -16,7 +16,7 @@ export default createBrowserRouter(
 			path={PATH.ROOT}
 			element={
 				<Provider store={Store}>
-					<AuthStateHandler />
+					<LayoutContainer />
 				</Provider>
 			}
 			errorElement={<Navigate to={PATH.ERROR} />}>
@@ -28,7 +28,7 @@ export default createBrowserRouter(
 			<Route
 				key={getRandomKey()}
 				path={PATH.LOGIN}
-				element={<LoginPage />}
+				element={<SignInPage />}
 			/>
 			<Route
 				key={getRandomKey()}

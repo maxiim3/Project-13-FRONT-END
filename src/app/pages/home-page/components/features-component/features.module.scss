@@ -1,0 +1,64 @@
+// Features Style
+.features {
+	display: flex;
+	flex-direction: column;
+
+	animation: anim 1200ms 300ms ease-in-out both;
+
+	@media (min-width: 920px) {
+		flex-direction: row;
+	}
+}
+
+.items {
+	flex: 1;
+	padding: 2.5rem;
+
+	$delay: 300ms;
+
+	&:nth-of-type(1) {
+		animation: anim-scale 500ms $delay ease-in-out both;
+	}
+
+	&:nth-of-type(2) {
+		animation: anim-scale 500ms calc($delay * 2) ease-in-out both;
+	}
+
+	&:nth-of-type(3) {
+		animation: anim-scale 500ms calc($delay * 3) ease-in-out both;
+	}
+
+	img {
+		width: 100px;
+		padding: 1rem;
+		border: 10px solid #00bc77;
+		border-radius: 50%;
+	}
+
+	h3 {
+		font-size: 1.25rem;
+		font-weight: bold;
+		margin-bottom: 0.5rem;
+		color: #222;
+	}
+}
+
+@keyframes anim {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes anim-scale {
+	0% {
+		opacity: 0;
+		scale: 130%;
+	}
+	100% {
+		opacity: 1;
+		scale: 100%;
+	}
+}

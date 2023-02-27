@@ -1,6 +1,6 @@
 import httpService from "./httpService"
 import {API} from "../config.json"
-import useAuthorization from "../hooks/useAuthorization"
+import useAuthorization from "../app/hooks/useAuthorization"
 
 export default async (token ?:string) => {
 	const url = API["GET_&_UPDATE_USER"]

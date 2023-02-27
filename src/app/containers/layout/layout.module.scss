@@ -1,0 +1,36 @@
+.wrapper {
+	display: grid;
+	min-height: 100vh;
+	grid-auto-rows: 60px auto 60px;
+
+	header {
+		max-height: 100px;
+		animation: anim-top 800ms 1800ms ease-in-out both;
+	}
+
+	main {
+		align-self: stretch;
+	}
+
+	footer {
+		align-self: end;
+		animation: anim-bottom 450ms 800ms ease-in-out both;
+	}
+}
+
+@keyframes anim-top {
+	0% {
+		transform: translateY(-100%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+@keyframes anim-bottom {
+	0% {
+		transform: translateY(100%);
+		}
+	100% {
+		transform: translateY(0);
+		}
+	}

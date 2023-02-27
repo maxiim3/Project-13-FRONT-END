@@ -6,10 +6,10 @@ export default () => {
 			error.response && error.response.status >= 400 && error.response.status < 500
 
 		if (!expectedError) {
-			console.log("Logging the error", error)
-			alert("An unexpected error occurred.")
+			console.log("Logging the error-page", error)
+			alert("An unexpected error-page occurred.")
 		}
-		console.log("Logging the error", error)
+		console.log("Logging the error-page", error)
 		return Promise.reject(error)
 	})
 

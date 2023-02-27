@@ -1,6 +1,6 @@
 import React from "react"
 import {createRoot} from "react-dom/client"
-import "./sass/main.css"
+import "./main.css"
 import router from "./routes/router"
 import {RouterProvider} from "react-router-dom"
 
@@ -13,18 +13,16 @@ root.render(
 			router={router}
 			fallbackElement={<h2>Waiting</h2>}
 		/>
-	</React.StrictMode>,
+	</React.StrictMode>
 )
 
-
 // authorization : "Bearer token"
-// api give only user info
+// api give only profile-page info
 // mock transaction data
-
 
 // store implementation.
 // http service in reducer
-// save token and user info
+// save token and profile-page info
 // save transaction data
 // mocked from public/transaction.json
 // implement endpoint to get transaction data

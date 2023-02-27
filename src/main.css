@@ -1,0 +1,17 @@
+@import "app/stylesheet/normalize.css";
+html {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/*# sourceMappingURL=main.sass.map */
