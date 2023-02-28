@@ -1,6 +1,6 @@
 import React from "react"
 
-export function TransactionContent(props: {
+export function TransactionSumUp(props: {
 	id: string
 	label: string
 	numberOfTransactions: number

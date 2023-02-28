@@ -9,31 +9,34 @@ import {T_CreditTransaction} from "./t_CreditTransaction"
 const credit: T_CreditTransaction[] = []
 const saving: T_SavingTransaction[] = []
 const checking: T_CheckingTransaction[] = []
-for (let i = 0; i < 700; i++) {
+for (let i = 0; i < 50; i++) {
 	checking.push({
-		transaction_type: "checking",
+		category: "checking",
 		transaction_id: getRandomKey(),
 		amount: getRandomAmount({max: 450}),
 		date_emitted_received: randomDates(),
 		emitter_id_receiver_id: generateTransaction(),
+		transaction_type: null,
 	})
 }
-for (let i = 0; i < 200; i++) {
+for (let i = 0; i < 20; i++) {
 	saving.push({
-		transaction_type: "saving",
+		category: "saving",
 		transaction_id: getRandomKey(),
-		amount: getRandomAmount({min: 250, max:1200}),
+		amount: getRandomAmount({min: 250, max: 1200}),
 		date_emitted_received: randomDates(),
 		emitter_id_receiver_id: generateTransaction(),
+		transaction_type: null,
 	})
 }
-for (let i = 0; i < 125; i++) {
+for (let i = 0; i < 12; i++) {
 	credit.push({
-		transaction_type: "credit",
+		category: "credit",
 		transaction_id: getRandomKey(),
 		amount: getRandomAmount({min: 50, max: 7000}),
 		date_emitted_received: randomDates(),
 		emitter_id_receiver_id: generateTransaction(),
+		transaction_type: null,
 	})
 }
 

@@ -3,4 +3,7 @@ export interface T_Transaction {
 	amount: number
 	date_emitted_received?: Array<string>
 	emitter_id_receiver_id?: Array<string>
+	transaction_type: "income" | "outcome"
+	transaction_emitter?: null | string
+	transaction_receiver?: null | string
 }
