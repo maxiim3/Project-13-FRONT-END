@@ -22,6 +22,7 @@ export const useFilterByLabel = ({email, transactions, label}: T_useFilterTransa
 				if (email === emitterMail) {
 					// Outcome Transaction
 					transaction.transaction_type = "outcome"
+					transaction.amount = transaction.amount * -1
 					transaction.transaction_receiver = receiverMail
 					transaction.transaction_emitter = null
 					outcomeTransactions.push(transaction)

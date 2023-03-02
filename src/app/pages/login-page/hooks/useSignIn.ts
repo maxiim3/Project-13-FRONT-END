@@ -34,7 +34,7 @@ export const useSignIn = ([email, password, checkbox]: Array<ReturnType<typeof i
 			if (rememberMe) {
 				localStorage.setItem("token", token)
 			}
-			navigate(PATH.HOME)
+			navigate(PATH.PROFILE)
 		} catch (e: any) {
 			const status = "error"
 			const message = e.response.data.message
@@ -48,3 +48,4 @@ export const useSignIn = ([email, password, checkbox]: Array<ReturnType<typeof i
 
 	return {isConnected: auth.isConnected, navigate, handleRequestLogin}
 }
+

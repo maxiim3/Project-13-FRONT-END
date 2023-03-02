@@ -7,3 +7,4 @@ export type T_AllTypeOfTransactions =
 	| T_SavingTransaction
 	| T_CreditTransaction
 export type T_ListOfTransactions = Array<T_AllTypeOfTransactions>
+

@@ -2,9 +2,9 @@ import React from "react"
 import $sro from "../../../stylesheet/sro.module.scss"
 import {useBankAccount} from "../useBankAccount"
 import {getRandomKey} from "../../../../utils/getRandomKey()"
-import {TransactionBlock} from "../components/TransactionBlock"
+import {TransactionWrapper} from "../components/TransactionWrapper"
 
-export function TransactionsContainer() {
+export function TransactionsSection() {
 
 	const transactions = useBankAccount() // get list of transactions for checking, savings and credit
 	return (
@@ -12,7 +12,7 @@ export function TransactionsContainer() {
 			<h2 className={$sro.screenReadersOnly}>Accounts</h2>
 
 			{transactions.map(transaction => (
-				<TransactionBlock
+				<TransactionWrapper
 					key={getRandomKey()}
 					{...transaction}
 				/>

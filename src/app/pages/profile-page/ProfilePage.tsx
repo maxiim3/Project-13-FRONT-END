@@ -3,7 +3,7 @@ import $profile from "./profile.module.scss"
 import {Navigate} from "react-router-dom"
 import {PATH} from "../../../config.json"
 import {MainContainer} from "../../containers/Main/MainContainer"
-import {TransactionsContainer} from "./containers/TransactionsContainer"
+import {TransactionsSection} from "./containers/TransactionsSection"
 import {Header} from "./components/Header"
 import {useProfileInformation} from "./hooks/useProfileInformation"
 import {EditProfile} from "./containers/EditProfile"
@@ -36,7 +36,7 @@ export const ProfilePage = () => {
 						lastName={lastName}
 					/>
 				</section>
-				<TransactionsContainer />
+				<TransactionsSection />
 			</div>
 		</MainContainer>
 	)
