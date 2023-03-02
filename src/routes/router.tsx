@@ -1,13 +1,13 @@
-import Home from "../app/pages/home-page/Home"
-import {LogInPage} from "../app/pages/login-page/LogInPage"
-import {ProfilePage} from "../app/pages/profile-page/ProfilePage"
-import Error from "../app/pages/error-page/Error"
+import Home from "../pages/Home"
+import {LogInPage} from "../pages/LogInPage"
+import {ProfilePage} from "../pages/profile-page/ProfilePage"
+import Error from "../pages/ErrorPage"
 import React from "react"
 import {createBrowserRouter, createRoutesFromElements, Navigate, Route} from "react-router-dom"
-import {getRandomKey} from "../utils/getRandomKey()"
+import {getRandomKey} from "../functions/getRandomKey()"
 import {PATH} from "../config.json"
-import {LayoutContainer} from "../app/containers/layout/LayoutContainer"
-import {StoreProvider} from "../store/components/StoreProvider"
+import {MainLayout} from "../components/layout/MainLayout"
+import {StoreProvider} from "../container/StoreProvider"
 
 export default createBrowserRouter(
 	createRoutesFromElements(
@@ -15,7 +15,7 @@ export default createBrowserRouter(
 			path={PATH.ROOT}
 			element={
 				<StoreProvider>
-					<LayoutContainer />
+					<MainLayout />
 				</StoreProvider>
 			}
 			errorElement={<Navigate to={PATH.ERROR} />}>

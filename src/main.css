@@ -1,4 +1,4 @@
-@import "app/stylesheet/normalize.css";
+@import "shared/normalize.css";
 html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;

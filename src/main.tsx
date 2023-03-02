@@ -17,7 +17,7 @@ root.render(
 )
 
 // authorization : "Bearer token"
-// api give only profile-page info
+// service give only profile-page info
 // mock transaction data
 
 // store implementation.
