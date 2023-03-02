@@ -1,0 +1,51 @@
+.formContainer fieldset {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.formContainer legend {
+  position: absolute;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.submitButton {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 8px;
+  transition: background-color 60ms ease-in-out;
+  color: #fff;
+  border-color: #00bc77;
+  background-color: #00bc77;
+}
+.submitButton:active {
+  transition: background-color 1ms 0ms linear;
+  background-color: gray;
+}
+.submitButton a:visited,
+.submitButton a {
+  text-decoration: none;
+  color: inherit;
+}
+.submitButton:disabled {
+  border: none;
+  background-color: #ccc;
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=form.module.css.map */

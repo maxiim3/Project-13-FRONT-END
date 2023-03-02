@@ -1,4 +1,4 @@
-import {T_InputFactory} from "../../../components/form/types/T_InputFactory"
+import {T_InputFactory} from "../../../types/T_InputFactory"
 import {useUpdateUserDispatcher} from "../../../hooks/useUpdateUser"
 import userService from "../../../service/userService"
 import {RefObject, useCallback, useRef} from "react"

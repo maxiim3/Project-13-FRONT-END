@@ -1,4 +1,4 @@
-import {T_BankAccount} from "../T_BankAccount"
+import {T_BankAccount} from "../../../types/T_BankAccount"
 import {T_ListOfTransactions} from "../mock/T_ListOfTransactions"
 import React, {MutableRefObject, useMemo, useRef} from "react"
 import $table from "./transactionTable.module.scss"

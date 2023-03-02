@@ -1,0 +1,139 @@
+main:has([aria-label="profile page wrapper"]) {
+  overflow: hidden;
+  animation: fadeIn 650ms 100ms ease-in-out both;
+}
+main:has([aria-label="profile page wrapper"]) .transactionWrapper:nth-of-type(1) {
+  animation: fadeIn 650ms 250ms ease-in-out both;
+}
+main:has([aria-label="profile page wrapper"]) .transactionWrapper:nth-of-type(2) {
+  animation: fadeIn 650ms 450ms ease-in-out both;
+}
+main:has([aria-label="profile page wrapper"]) .transactionWrapper:nth-of-type(3) {
+  animation: fadeIn 650ms 650ms ease-in-out both;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  50% {
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+.header {
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.heading {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.formWrapper {
+  max-width: 45ch;
+  margin-inline: auto;
+}
+.formWrapper fieldset {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+.formWrapper legend {
+  position: absolute;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.formContainer {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+}
+
+.button {
+  font-weight: bold;
+  padding: 10px;
+  color: #fff;
+  border-color: #00bc77;
+  background-color: #00bc77;
+}
+
+.inputWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.transactionWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  text-align: left;
+  border: 1px solid black;
+  background-color: #fff;
+}
+.transactionWrapper [data-selector=content] {
+  flex: 1;
+  width: 100%;
+}
+.transactionWrapper [data-selector=content] h3 {
+  font-size: 1rem;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+.transactionWrapper [data-selector=content] p:first-of-type {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+.transactionWrapper [data-selector=content] p:last-of-type {
+  margin: 0;
+}
+.transactionWrapper [data-selector=cta] button {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 8px;
+  color: #fff;
+  border-color: #00bc77;
+  background-color: #00bc77;
+}
+@media (min-width: 720px) {
+  .transactionWrapper {
+    flex-direction: row;
+  }
+  .transactionWrapper [data-selector=cta] {
+    flex: 0;
+    width: 100%;
+  }
+  .transactionWrapper [data-selector=cta] button {
+    width: 200px;
+  }
+}
+
+/*# sourceMappingURL=profile.module.css.map */

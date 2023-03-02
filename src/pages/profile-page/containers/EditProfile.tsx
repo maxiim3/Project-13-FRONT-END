@@ -1,58 +1,93 @@
-import React, {useMemo} from "react"
-import {Form} from "../../../components/form/Form"
-import {inputFactory} from "../../../components/form/factory/InputFactory"
-import $style from "../profile.module.scss"
-import {useEditProfile} from "../hooks/useEditProfile"
-import {Modal} from "../../../components/modal/Modal"
-import {useModal} from "../../../components/modal/useModal"
+import React, {useRef, useState} from "react"
+import {createInput} from "../../../functions/createInput"
+import $profile from "../../../shared/profile.module.scss"
+import $form from "../../../shared/form.module.scss"
+import {FieldSetWithLegend} from "../../../container/FieldSetWithLegend"
+import {InputContainer} from "../../../container/InputContainer"
+import {getRandomKey} from "../../../functions/getRandomKey()"
 
 interface EditProfileProps {
 	firstName: string
 	lastName: string
 }
 
-const firstNameInput = inputFactory({
-	label: "First Name",
-	minLength: 4,
-	inputType: "text",
-})
-const lastNameInput = inputFactory({
-	label: "Last Name",
-	minLength: 4,
-	inputType: "text",
-})
-
 export function EditProfile({firstName, lastName}: EditProfileProps) {
-	const inputCollection = useMemo(() => {
-		firstNameInput.setPlaceholder(firstName)
-		lastNameInput.setPlaceholder(lastName)
-		return [firstNameInput, lastNameInput]
-	}, [firstName, lastName])
-
-	const {handleUpdateProfile} = useEditProfile(inputCollection)
-	const {modalRef, closeModal, openModal} = useModal()
+	const firstNameInput = useRef(
+		createInput({
+			label: "First Name",
+			minLength: 4,
+			inputType: "text",
+		})
+	).current
+	const lastNameInput = useRef(
+		createInput({
+			label: "Last Name",
+			minLength: 4,
+			inputType: "text",
+		})
+	).current
+	firstNameInput.setPlaceholder(firstName)
+	lastNameInput.setPlaceholder(lastName)
+	const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
+	// const submitUpdateRequest = (e: any) => {
+	// 	e.preventDefault()
+	// 	if (inputCollection.some(input => !input.isValid)) {
+	// 		const invalidInputs = inputCollection.filter(input => !input.isValid)
+	// 		invalidInputs.forEach(input => {
+	// 			const that = document.getElementById(input.id) as HTMLInputElement
+	// 			useVisualErrorFeedback(that, input)
+	// 		})
+	// 	} else {
+	// 		formRef.current?.dispatchEvent(new Event("submit", {cancelable: true, bubbles: true}))
+	// 	}
+	// }
+	// const {handleUpdateProfile} = useEditProfile(inputCollection)
+	const [isEditable, setIsEditable] = useState(false)
+	const toggleIsEditable = () => setIsEditable(prev => !prev)
 
 	return (
 		<>
-			<button
-				className={$style.button}
-				onClick={openModal}>
-				Edit Name
-			</button>
-			<Modal
-				modalRef={modalRef}
-				onClose={closeModal}>
-				<Form
-					description={""}
-					title={"Edit Profile"}
-					inputCollection={inputCollection}
-					buttonLabel={"Update"}
-					handleSubmit={e => {
-						handleUpdateProfile(e).then(r => r)
-						closeModal()
-					}}
-				/>
-			</Modal>
+			{!isEditable ? (
+				<button
+					className={$profile.button}
+					onClick={toggleIsEditable}>
+					Edit Name
+				</button>
+			) : (
+				// <Modal
+				// 	modalRef={modalRef}
+				// 	onClose={closeModal}>
+				<section className={$profile.formWrapper}>
+					<form
+						className={$form.formContainer}
+						aria-label={"Edit Profile"}
+						aria-describedby={""}
+						ref={formRef}
+						// onSubmit={submitUpdateRequest}
+					>
+						<FieldSetWithLegend legend={""}>
+							<InputContainer
+								key={getRandomKey()}
+								input={firstNameInput}
+							/>
+							<InputContainer
+								key={getRandomKey()}
+								input={lastNameInput}
+							/>
+							<button
+								className={$form.submitButton}
+								onClick={e => {
+									e.preventDefault()
+									// handleUpdateProfile(e).then(r => r)
+									toggleIsEditable()
+								}}>
+								Update
+							</button>
+						</FieldSetWithLegend>
+					</form>
+				</section>
+				// </Modal>
+			)}
 		</>
 	)
 }

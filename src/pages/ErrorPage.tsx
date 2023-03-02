@@ -1,9 +1,9 @@
 import React from "react"
-import $error from "./error.module.scss"
+import $error from "../shared/error.module.scss"
 import {Link, Route} from "react-router-dom"
 import {PATH} from "../config.json"
 import {getRandomKey} from "../functions/getRandomKey()"
-import {MainContainer} from "../components/Main/MainContainer"
+import {MainContainer} from "../container/Main/MainContainer"
 
 
 

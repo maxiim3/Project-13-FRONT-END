@@ -1,5 +1,5 @@
 import {useMemo} from "react"
-import {calculateBalance} from "./calculateBalance"
+import {calculateBalance} from "../../functions/calculateBalance"
 import {T_AllTypeOfTransactions, T_ListOfTransactions} from "./mock/T_ListOfTransactions"
 
 export type T_useFilterTransactions = {
@@ -7,7 +7,7 @@ export type T_useFilterTransactions = {
 	transactions: T_ListOfTransactions
 	label: "credit" | "saving" | "checking"
 }
-// Filtering the transactions by Label ("checking" | "saving" | "credit")
+// Filtering the transactions by LabelForInput ("checking" | "saving" | "credit")
 export const useFilterByLabel = ({email, transactions, label}: T_useFilterTransactions) =>
 	useMemo(() => {
 		const incomeTransactions: T_AllTypeOfTransactions[] = []
