@@ -1,0 +1,97 @@
+[aria-label="Transaction Page"] {
+  background: #e1e1e6;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: black;
+  border: 1px gray solid;
+  background-color: white;
+  gap: 8px;
+  padding-block: 48px;
+  margin-block: 12px;
+}
+.header p {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+.header p:nth-of-type(2) {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.table {
+  width: 80vw;
+  border-collapse: collapse;
+  margin-inline: auto;
+}
+.table tr {
+  display: grid;
+  grid-template-areas: "btn date desc amount balance" "empty expend expend expend expend ";
+}
+.table tr td {
+  justify-self: start;
+}
+.table tr td,
+.table tr th {
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  padding-block: 20px;
+}
+.table tr td[aria-label="Expend informations"], .table tr td[aria-hidden=true],
+.table tr th[aria-label="Expend informations"],
+.table tr th[aria-hidden=true] {
+  background: red;
+  grid-area: btn;
+}
+.table tr td[aria-label="Expend informations"] button, .table tr td[aria-hidden=true] button,
+.table tr th[aria-label="Expend informations"] button,
+.table tr th[aria-hidden=true] button {
+  width: 100%;
+  background: blue;
+}
+.table tr td[aria-label=Date],
+.table tr th[aria-label=Date] {
+  grid-area: date;
+}
+.table tr td[aria-label=Description],
+.table tr th[aria-label=Description] {
+  grid-area: desc;
+}
+.table tr td[aria-label=Amount],
+.table tr th[aria-label=Amount] {
+  grid-area: amount;
+}
+.table tr td[aria-label=Balance],
+.table tr th[aria-label=Balance] {
+  grid-area: balance;
+}
+.table tr aside {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  grid-area: expend;
+  justify-self: start;
+  gap: 24px;
+  margin-block: 24px 12px;
+}
+.table tr aside p {
+  margin: 0;
+  padding: 0;
+}
+.table tbody {
+  border: 1px solid black;
+  background-color: white;
+}
+.table tbody tr {
+  border-bottom: 1px solid black;
+}
+
+/*# sourceMappingURL=transaction.module.css.map */

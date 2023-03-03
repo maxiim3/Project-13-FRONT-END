@@ -1,0 +1,6 @@
+.mainContainer:not([aria-label="Home Page"], [aria-label="Error Page"], [aria-label="Transaction Page"]) {
+  flex: 1;
+  background-color: #12002b;
+}
+
+/*# sourceMappingURL=main.module.css.map */

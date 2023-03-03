@@ -1,79 +1,36 @@
-import React, {MouseEvent, useMemo, useRef, useState} from "react"
+import React from "react"
 import $profile from "../shared/profile.module.scss"
 import $sro from "../shared/sro.module.scss"
 import {Navigate} from "react-router-dom"
 import {PATH} from "../config.json"
-import {MainContainer} from "../container/Main/MainContainer"
-import {TransactionsSection} from "./profile-page/containers/TransactionsSection"
-import {useProfileInformation} from "./profile-page/hooks/useProfileInformation"
-import {createInput} from "../functions/createInput"
-import {FieldSetWithLegend} from "../container/FieldSetWithLegend"
-import {DefaultInput} from "../components/FormItems"
-
-interface EditProfileProps {
-	firstName: string
-	lastName: string
-}
-
-type ButtonProps = {
-	appliedStyle?: string
-	text: string
-	onClick?: (e: MouseEvent) => void
-}
-
-function Button({appliedStyle, onClick, text}: ButtonProps) {
-	return (
-		<button
-			className={appliedStyle || $profile.button}
-			onClick={onClick}>
-			{text}
-		</button>
-	)
-}
+import {MainContainer} from "../container/MainContainer"
+import {AccountContainer} from "../container/AccountContainer"
+import {Button} from "../components/Button"
+import {useProfilePage} from "../hooks/UseProfilePage"
+import {EditForm} from "../container/EditForm"
+import {checkingAccount} from "../functions/transaction"
 
 export const ProfilePage = () => {
-	const {isConnected, user, navigate} = useProfileInformation()
-	const firstNameInput = useRef(
-		createInput({
-			label: "First Name",
-			minLength: 4,
-			inputType: "text",
-		})
-	).current
-	const lastNameInput = useRef(
-		createInput({
-			label: "Last Name",
-			minLength: 4,
-			inputType: "text",
-		})
-	).current
+	const {isConnected, lastName, firstName, isEditable, toggleIsEditable, navigate} =
+		useProfilePage()
 
-	const {lastName, firstName} = useMemo(() => {
-		return user
-	}, [user])
-	firstNameInput.setPlaceholder(firstName)
-	lastNameInput.setPlaceholder(lastName)
-	const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
-	const [isEditable, setIsEditable] = useState(false)
-	const toggleIsEditable = () => setIsEditable(prev => !prev)
-
-	const [firstNamePrompt, setFirstNamePrompt] = useState(firstName)
-	const [lastNamePrompt, setLastNamePrompt] = useState(lastName)
+	// todo could be extracted as a middleware for both login and profile pages
 	if (!isConnected) {
 		navigate(PATH.LOGIN)
 		return <Navigate to={PATH.LOGIN} />
 	}
 
-	// todo add accessibility
+	// todo add accessibility to form
+
 	return (
 		<MainContainer
 			ariaDescription={`Welcome to your profile page ${firstName}!`}
 			ariaLabel={"User Profile Page"}>
-			<h2 className={$sro.screenReadersOnly}>Profile Page</h2>
-			<caption className={$sro.screenReadersOnly}>
+			<aside className={$sro.screenReadersOnly}>
 				Welcome to Your Profile Page. Here you can find your transactions and update
 				informations
-			</caption>
+			</aside>
+			<h2 className={$sro.screenReadersOnly}>Profile Page</h2>
 			<div aria-label={"profile page wrapper"}>
 				<section className={$profile.header}>
 					<p className={$profile.heading}>Welcome back</p>
@@ -83,70 +40,34 @@ export const ProfilePage = () => {
 							{firstName} {lastName}
 						</p>
 					) : (
-						<section className={$profile.formWrapper}>
-							<FieldSetWithLegend legend={`Update Your informations`}>
-								<form
-									className={$profile.formContainer}
-									aria-label={"Edit Profile"}
-									aria-describedby={""}
-									ref={formRef}
-									// onSubmit={submitUpdateRequest}
-								>
-									{/*TODO Match the wireframes for input*/}
-									{/*TODO Make the input cancelable and optional*/}
-									<div className={$profile.inputWrapper}>
-										<DefaultInput
-											input={firstNameInput}
-											value={firstNamePrompt}
-											onChange={e => setFirstNamePrompt(e.current.value)}
-										/>
-
-										<DefaultInput
-											input={lastNameInput}
-											value={lastNamePrompt}
-											onChange={e => setLastNamePrompt(e.current.value)}
-										/>
-									</div>
-									<div className={$profile.buttonWrapper}>
-										<Button
-											text={"Save"}
-											onClick={e => {
-												e.preventDefault()
-												toggleIsEditable()
-											}}
-										/>
-										<Button
-											text={"Cancel"}
-											onClick={e => {
-												e.preventDefault()
-												toggleIsEditable()
-											}}
-										/>
-									</div>
-									{/*<button*/}
-									{/*	className={$form.submitButton}*/}
-									{/*	onClick={e => {*/}
-									{/*		e.preventDefault()*/}
-									{/*		// handleUpdateProfile(e).then(r => r)*/}
-									{/*		toggleIsEditable()*/}
-									{/*	}}>*/}
-									{/*	Update*/}
-									{/*</button>*/}
-								</form>
-							</FieldSetWithLegend>
-						</section>
-					)}
-					{!isEditable && (
-						<Button
-							text={"Edit Name"}
-							onClick={e => {
-								e.preventDefault()
-								toggleIsEditable()
-							}}
+						<EditForm
+							firstName={firstName}
+							lastName={lastName}
+							toggleIsEditable={toggleIsEditable}
 						/>
 					)}
+					{!isEditable && (
+						<div className={$profile.buttonWrapper__EditBtn}>
+							<Button
+								text={"Edit"}
+								ariaLabelProp={"Edit Button"}
+								ariaDescriptionProp={"Update your informations"}
+								onClick={e => {
+									e.preventDefault()
+									toggleIsEditable()
+								}}
+							/>
+						</div>
+					)}
 				</section>
-				<TransactionsSection />
+				{/*TODO --> Mobile View CSS*/}
+				{/*TODO --> Transaction Model*/}
+				{/*TODO --> Transaction Table (Use mocks, do not implement the update feature)*/}
+				<h2 className={$sro.screenReadersOnly}>Accounts</h2>
+
+				<AccountContainer data={checkingAccount} />
+				<AccountContainer data={checkingAccount} />
+				<AccountContainer data={checkingAccount} />
 			</div>
 		</MainContainer>
 	)

@@ -4,7 +4,8 @@
 		"ERROR": "/error",
 		"HOME": "/",
 		"LOGIN": "/login",
-		"PROFILE": "/profile"
+		"PROFILE": "/profile",
+		"TRANSACTION": "/transaction"
 	},
 	"API": {
 		"MOCK_USER": "http://localhost:5173/mockUsers.json",

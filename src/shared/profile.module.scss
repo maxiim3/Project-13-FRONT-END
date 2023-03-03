@@ -1,18 +1,20 @@
+@import "./input.module";
+
 // User Profile Styles
 main:has([aria-label="profile page wrapper"]) {
 	overflow: hidden;
-	animation: fadeIn 650ms 100ms ease-in-out both;
+	//animation: fadeIn 650ms 100ms ease-in-out both;
 
 	.transactionWrapper:nth-of-type(1) {
-		animation: fadeIn 650ms 250ms ease-in-out both;
+		//animation: fadeIn 650ms 250ms ease-in-out both;
 	}
 
 	.transactionWrapper:nth-of-type(2) {
-		animation: fadeIn 650ms 450ms ease-in-out both;
+		//animation: fadeIn 650ms 450ms ease-in-out both;
 	}
 
 	.transactionWrapper:nth-of-type(3) {
-		animation: fadeIn 650ms 650ms ease-in-out both;
+		//animation: fadeIn 650ms 650ms ease-in-out both;
 	}
 }
 
@@ -37,13 +39,22 @@ main:has([aria-label="profile page wrapper"]) {
 	color: #fff;
 }
 
-.heading {
+@mixin headingFontProps {
 	font-size: 2em;
 	font-weight: bold;
 }
 
+@mixin inputFontProps {
+	@include headingFontProps;
+	font-size: 1.6em;
+}
+
+.heading {
+	@include headingFontProps;
+}
+
 .formWrapper {
-	max-width: 45ch;
+	width: 100%;
 
 	fieldset {
 		// reset
@@ -63,14 +74,13 @@ main:has([aria-label="profile page wrapper"]) {
 		//top: 0;
 		//left: 0;
 	}
+
 	margin-inline: auto;
 }
 
 .formContainer {
-	display: flex;
-	align-items: stretch;
-	flex-direction: column;
-	justify-content: center;
+	display: grid;
+	place-content: center;
 	gap: 12px;
 }
 
@@ -84,14 +94,46 @@ main:has([aria-label="profile page wrapper"]) {
 
 .inputWrapper {
 	display: flex;
-	justify-content: center;
-	gap: 12px;
+	flex-direction: column;
+	margin-bottom: 12px;
+	gap: 32px;
+	@media screen and (min-width: 720px) {
+		flex-direction: row;
+		justify-content: center;
+		gap: 32px;
+	}
+
+	input {
+		@include inputFontProps;
+		font-weight: 500;
+		padding-left: 12px;
+		padding-block: 8px;
+	}
 }
 
 .buttonWrapper {
 	display: flex;
+	flex-direction: row;
 	justify-content: center;
-	gap: 12px;
+	margin-bottom: 12px;
+	gap: 28px;
+
+	button {
+		@include inputFontProps;
+		min-width: 120px;
+		@media screen and (min-width: 720px) {
+			min-width: 200px;
+		}
+	}
+
+	&__EditBtn {
+		composes: buttonWrapper;
+
+		button {
+			filter: grayscale(100%);
+			//font-size: 100%;
+		}
+	}
 }
 
 .transactionWrapper {

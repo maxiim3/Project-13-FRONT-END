@@ -1,0 +1,138 @@
+// ** TransactionPage Component
+[aria-label="Transaction Page"] {
+	background: #e1e1e6;
+}
+
+// ** TransactionPage Component
+.header {
+	display: flex;
+	flex: {
+		direction: column;
+	}
+	justify-content: center;
+	color: black;
+	border: 1px gray solid;
+	background-color: white;
+	gap: 8px;
+	padding-block: 48px;
+	margin-block: 12px;
+
+	p {
+		font: {
+			size: 18px;
+			weight: bold;
+		}
+		margin: 0;
+		padding: 0;
+	}
+
+	p:nth-of-type(2) {
+		font: {
+			size: 24px;
+			weight: bold;
+		}
+		margin: 0;
+		padding: 0;
+	}
+}
+
+// ** TransactionPage Component
+.table {
+	width: 80vw;
+	border-collapse: collapse;
+	margin-inline: auto;
+
+	tr {
+		display: grid;
+
+		grid-template-areas:
+			"btn date desc amount balance"
+			"empty expend expend expend expend ";
+
+		td {
+			justify-self: start;
+		}
+
+		td,
+		th {
+			font-weight: bold;
+			margin: 0;
+			padding: 0;
+			padding-block: 20px;
+
+			&[aria-hidden="true"] {
+				//visibility: hidden;
+			}
+
+			&[aria-label="Expend informations"],
+			&[aria-hidden="true"] {
+				//width: 24px;
+				background: red;
+
+				button {
+					width: 100%;
+					background: blue;
+				}
+
+				grid-area: btn;
+			}
+
+			&[aria-label="Date"] {
+				grid-area: date;
+			}
+
+			&[aria-label="Description"] {
+				//width: 250px;
+				grid-area: desc;
+			}
+
+			&[aria-label="Amount"] {
+				grid-area: amount;
+			}
+
+			&[aria-label="Balance"] {
+				grid-area: balance;
+			}
+		}
+
+		aside {
+			//position: relative;
+			//top: 80px;
+			//left: -40vw;
+			display: flex;
+			align-items: start;
+			flex-direction: column;
+			grid-area: expend;
+			justify-self: start;
+			gap: 24px;
+			margin-block: 24px 12px;
+
+			p {
+				margin: 0;
+				padding: 0;
+			}
+		}
+	}
+
+	// t body
+	tbody {
+		//width: 100%;
+		border: 1px solid black;
+		background-color: white;
+
+		// ** TransactionItem Component
+		// row of transaction
+		tr {
+			//position: relative;
+			//display: flex;
+			//justify-content: space-between;
+			//width: 100%;
+			border-bottom: 1px solid black;
+			// data cell
+
+			// hidden element
+		}
+	}
+}
+
+$usePadding: 12px 24px;

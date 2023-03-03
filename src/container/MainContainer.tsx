@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react"
-import $style from "./main.module.scss"
+import $style from "../shared/main.module.scss"
 
 type T_MainContainer = {
 	children: JSX.Element | JSX.Element[]
 	ariaDescription?: string
-	ariaLabel?: "Home Page" | "Sign In Page" | "User Profile Page" | "Error Page"
+	ariaLabel?: "Home Page" | "Sign In Page" | "User Profile Page" | "Error Page" | "Transaction Page"
 }
 
 export const MainContainer = ({children, ariaLabel, ariaDescription}: T_MainContainer) => {

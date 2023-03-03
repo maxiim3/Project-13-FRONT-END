@@ -5,11 +5,11 @@ import {SetAuth} from "../store/actions/setAuth"
 
 /**
  * # UseLoginDispatcher
- * @description Hook to log profile-page in. Uses dispatch and action creators to set profile-page and login-page to true.
- * @return {{logUserIn: (profile-page: T_UserSchema_From_API) => void}}
- * @param profile-page
+ * @description Hook to log transactions in. Uses dispatch and action creators to set transactions and login-page to true.
+ * @return {{logUserIn: (transactions: T_UserSchema_From_API) => void}}
+ * @param transactions
  * @example const {logUserIn} = useLoginDispatcher()
- * @example logUserIn(profile-page)
+ * @example logUserIn(transactions)
  */
 export function useUpdateUserDispatcher() {
 	const dispatch = useDispatch()

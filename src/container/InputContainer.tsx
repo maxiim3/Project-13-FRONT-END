@@ -1,12 +1,14 @@
 import {T_InputFactory} from "../types/T_InputFactory"
 import React, {useRef} from "react"
 import $input from "../shared/input.module.css"
-import {CheckboxInput, DefaultInput, Label} from "../components/FormItems"
-import {useInputState} from "../hooks/useInputState"
+import {Label} from "../components/Label"
+import {useHandleInputStates} from "../hooks/useHandleInputStates"
 import {FieldSetWithLegend} from "./FieldSetWithLegend"
+import {CheckboxInput} from "../components/CheckboxInput"
+import {DefaultInput} from "../components/DefaultInput"
 
 export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
-	const {prompt, setPrompt, updateValue} = useInputState()
+	const {prompt, setPrompt, handleUpdateAndFeedback} = useHandleInputStates()
 
 	const {current: isCheckbox} = useRef(input.inputType === "checkbox")
 
@@ -44,7 +46,7 @@ export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
 			<DefaultInput
 				input={input}
 				value={prompt}
-				onChange={e => updateValue(e, input)}
+				onChange={e => handleUpdateAndFeedback(e, input)}
 			/>
 		</FieldSetWithLegend>
 	)

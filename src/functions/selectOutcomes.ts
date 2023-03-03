@@ -1,4 +1,4 @@
-import {T_ListOfTransactions} from "../pages/profile-page/mock/T_ListOfTransactions"
+import {T_ListOfTransactions} from "../components/transactions/mock/T_ListOfTransactions"
 
 export const selectOutcomes = (transactions: T_ListOfTransactions, email: string) => {
 	return transactions.filter(transaction => {

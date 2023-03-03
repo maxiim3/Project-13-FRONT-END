@@ -17,12 +17,12 @@ root.render(
 )
 
 // authorization : "Bearer token"
-// service give only profile-page info
+// service give only transactions info
 // mock transaction data
 
 // store implementation.
 // http service in reducer
-// save token and profile-page info
+// save token and transactions info
 // save transaction data
 // mock from public/transaction.json
 // implement endpoint to get transaction data

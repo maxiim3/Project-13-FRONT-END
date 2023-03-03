@@ -1,6 +1,0 @@
-.mainContainer {
-	&:not([aria-label="Home Page"], [aria-label="Error Page"]) {
-		flex: 1;
-		background-color: #12002b;
-	}
-}

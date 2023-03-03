@@ -5,7 +5,7 @@ import React from "react"
 export const LoginNavItem = () => {
 	return (
 		<LinkFactory
-			icon={"fa-profile-page-circle"}
+			icon={"fa-transactions-circle"}
 			path={PATH.LOGIN}
 			innerContent={"Sign In"}
 		/>

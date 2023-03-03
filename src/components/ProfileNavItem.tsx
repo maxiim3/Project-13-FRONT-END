@@ -6,7 +6,7 @@ import React from "react"
 export const ProfileNavItem = ({user}: {user: T_UserSchema_From_API}) => {
 	return (
 		<LinkFactory
-			icon={"fa-profile-page-circle"}
+			icon={"fa-transactions-circle"}
 			path={PATH.PROFILE}
 			innerContent={user.firstName}
 		/>

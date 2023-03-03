@@ -3,12 +3,12 @@ import {API} from "../config.json"
 import useAuthorization from "../hooks/useAuthorization"
 import {T_UserSchema_For_API} from "../types/T_UserSchema"
 
+type T_PayloadToUpdateUser = {
+	firstName?: string
+	lastName?: string
+}
 const userService = {
-	updateUser: async (props: {firstName?: string; lastName?: string}) => {
-		const payload = {
-			firstName: props?.firstName || null,
-			lastName: props?.lastName || null,
-		}
+	updateUser: async (payload: T_PayloadToUpdateUser) => {
 		const promise = await httpService().put(API["GET_&_UPDATE_USER"], payload, {
 			headers: useAuthorization(),
 		})

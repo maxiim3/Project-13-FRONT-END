@@ -1,4 +1,4 @@
-import {T_ListOfTransactions} from "../pages/profile-page/mock/T_ListOfTransactions"
+import {T_ListOfTransactions} from "../components/transactions/mock/T_ListOfTransactions"
 
 export type T_BankAccount = {
 	label: string

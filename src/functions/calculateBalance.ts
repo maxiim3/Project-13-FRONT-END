@@ -1,4 +1,4 @@
-import {T_ListOfTransactions} from "../pages/profile-page/mock/T_ListOfTransactions"
+import {T_ListOfTransactions} from "../components/transactions/mock/T_ListOfTransactions"
 
 export function calculateBalance(incomes: T_ListOfTransactions, outcomes: T_ListOfTransactions) {
 	let totalIncomes = incomes
