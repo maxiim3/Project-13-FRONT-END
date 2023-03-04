@@ -6,17 +6,19 @@ import {ProfileNavItem} from "../components/ProfileNavItem"
 import {SignOutNavItem} from "../components/SignOutNavItem"
 import {LoginNavItem} from "../components/LoginNavItem"
 
-export const MainNavBar = () => {
+export const HeaderBannerNav = () => {
 	const {auth} = useSelector((state: any) => state)
 	return (
-		<header>
+		<header
+			role={"banner"}
+			aria-level={1}>
 			<nav
 				role={"navigation"}
 				aria-label={"menu"}
 				className={$nav.container}>
 				<LogoNavItem />
 				{auth.isConnected ? (
-					<div tabIndex={-1}>
+					<div tabIndex={-1} className={$nav.rightSideLinks}>
 						<ProfileNavItem user={auth.user} />
 						<SignOutNavItem />
 					</div>

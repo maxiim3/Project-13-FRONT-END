@@ -1,17 +1,24 @@
 [aria-label="Transaction Page"] {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
   background: #e1e1e6;
+  gap: 80px;
 }
 
 .header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
   color: black;
   border: 1px gray solid;
   background-color: white;
   gap: 8px;
-  padding-block: 48px;
-  margin-block: 12px;
+  padding-block: 40px;
+  margin-block: 0 12px;
 }
 .header p {
   font-size: 18px;
@@ -20,78 +27,99 @@
   padding: 0;
 }
 .header p:nth-of-type(2) {
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
   margin: 0;
   padding: 0;
 }
 
 .table {
-  width: 80vw;
-  border-collapse: collapse;
-  margin-inline: auto;
-}
-.table tr {
-  display: grid;
-  grid-template-areas: "btn date desc amount balance" "empty expend expend expend expend ";
-}
-.table tr td {
-  justify-self: start;
-}
-.table tr td,
-.table tr th {
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-  padding-block: 20px;
-}
-.table tr td[aria-label="Expend informations"], .table tr td[aria-hidden=true],
-.table tr th[aria-label="Expend informations"],
-.table tr th[aria-hidden=true] {
-  background: red;
-  grid-area: btn;
-}
-.table tr td[aria-label="Expend informations"] button, .table tr td[aria-hidden=true] button,
-.table tr th[aria-label="Expend informations"] button,
-.table tr th[aria-hidden=true] button {
+  font-size: clamp(12px, 2vw, 18px);
   width: 100%;
-  background: blue;
+  container: table inline-size;
 }
-.table tr td[aria-label=Date],
-.table tr th[aria-label=Date] {
-  grid-area: date;
+@media screen and (width >= 650px) {
+  .table {
+    width: clamp(650px, 80vw, 720px);
+    margin-inline: auto;
+  }
 }
-.table tr td[aria-label=Description],
-.table tr th[aria-label=Description] {
-  grid-area: desc;
-}
-.table tr td[aria-label=Amount],
-.table tr th[aria-label=Amount] {
-  grid-area: amount;
-}
-.table tr td[aria-label=Balance],
-.table tr th[aria-label=Balance] {
-  grid-area: balance;
-}
-.table tr aside {
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  grid-area: expend;
-  justify-self: start;
-  gap: 24px;
-  margin-block: 24px 12px;
-}
-.table tr aside p {
+.table header,
+.table article[aria-label=transaction] {
+  font-weight: bold;
+  position: relative;
   margin: 0;
   padding: 0;
 }
-.table tbody {
-  border: 1px solid black;
+.table header ul,
+.table article[aria-label=transaction] ul {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0 0 0 12px;
+  list-style: none;
+  gap: 4px;
+}
+.table header ul:before,
+.table article[aria-label=transaction] ul:before {
+  width: clamp(16px, 5vw, 32px);
+  margin: 0;
+  padding: 0;
+  content: "";
+}
+.table header ul[role=row],
+.table article[aria-label=transaction] ul[role=row] {
+  padding-block: 16px;
+}
+.table header ul[role=row]:first-of-type:hover,
+.table article[aria-label=transaction] ul[role=row]:first-of-type:hover {
+  cursor: pointer;
+}
+.table header ul li,
+.table article[aria-label=transaction] ul li {
+  width: 25%;
+}
+.table article[aria-label=transaction] {
+  border-bottom: 1px rgba(0, 0, 0, 0.65) solid;
+}
+.table article[aria-label=transaction]:last-of-type {
+  border: none;
+}
+.table article[aria-label=transaction] aside {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 0 0 0 12px;
+  text-align: left;
+}
+.table main {
+  border: 1px solid rgba(174, 171, 171, 0.81);
   background-color: white;
 }
-.table tbody tr {
-  border-bottom: 1px solid black;
+.table button {
+  box-sizing: border-box;
+  width: clamp(16px, 5vw, 32px);
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border: none;
+  background: none;
+}
+.table button[aria-label=expend] {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+.table button[aria-label=expend] svg {
+  font-size: clamp(12px, 3vw, 28px);
+  font-weight: bolder;
+  stroke-width: 36px;
+}
+@media screen and (width >= 596px) {
+  .table button {
+    top: 16px;
+    left: 12px;
+  }
 }
 
 /*# sourceMappingURL=transaction.module.css.map */

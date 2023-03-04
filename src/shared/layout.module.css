@@ -7,9 +7,6 @@
   max-height: 100px;
   animation: anim-top 800ms 1800ms ease-in-out both;
 }
-.wrapper > main {
-  align-self: stretch;
-}
 .wrapper > footer {
   align-self: end;
   animation: anim-bottom 450ms 800ms ease-in-out both;

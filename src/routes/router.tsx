@@ -8,7 +8,7 @@ import {getRandomKey} from "../functions/getRandomKey()"
 import {PATH} from "../config.json"
 import {MainLayout} from "../container/MainLayout"
 import {StoreProvider} from "../container/StoreProvider"
-import {TransactionPage} from "../pages/TransactionPage"
+import {InventoryPage} from "../pages/InventoryPage"
 
 export default createBrowserRouter(
 	createRoutesFromElements(
@@ -37,9 +37,21 @@ export default createBrowserRouter(
 			/>
 			<Route
 				key={getRandomKey()}
-				path={PATH.TRANSACTION}
-				element={<TransactionPage />}
-			/>
+				path={`${PATH.INVENTORY}`}
+				errorElement={<Navigate to={PATH.PROFILE} />}
+				element={<InventoryPage />}>
+				<Route
+					key={getRandomKey()}
+					index
+					errorElement={<Navigate to={PATH.PROFILE} />}
+				/>
+				<Route
+					key={getRandomKey()}
+					path={`${PATH.INVENTORY}/:account`}
+					element={<InventoryPage />}
+				/>
+			</Route>
+
 			<Route
 				key={getRandomKey()}
 				path={PATH.ERROR}

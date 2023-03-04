@@ -1,4 +1,4 @@
-import React, {MouseEvent} from "react"
+import React, {MouseEvent, ReactNode} from "react"
 import $profile from "../shared/profile.module.scss"
 
 type ButtonProps = {
@@ -7,9 +7,10 @@ type ButtonProps = {
 	onClick?: (e: MouseEvent) => void
 	ariaLabelProp?: string
 	ariaDescriptionProp?: string
+	children?: ReactNode
 }
 
-export function Button({appliedStyle, onClick, text, ariaLabelProp, ariaDescriptionProp}: ButtonProps) {
+export function Button({appliedStyle, onClick, text, ariaLabelProp, ariaDescriptionProp, children}: ButtonProps) {
 	return (
 		<button
 			role={"button"}
@@ -18,6 +19,7 @@ export function Button({appliedStyle, onClick, text, ariaLabelProp, ariaDescript
 			className={appliedStyle || $profile.button}
 			onClick={onClick}>
 			{text}
+			{children}
 		</button>
 	)
 }

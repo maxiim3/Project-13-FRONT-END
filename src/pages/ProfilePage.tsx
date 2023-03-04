@@ -4,15 +4,17 @@ import $sro from "../shared/sro.module.scss"
 import {Navigate} from "react-router-dom"
 import {PATH} from "../config.json"
 import {MainContainer} from "../container/MainContainer"
-import {AccountContainer} from "../container/AccountContainer"
 import {Button} from "../components/Button"
-import {useProfilePage} from "../hooks/UseProfilePage"
-import {EditForm} from "../container/EditForm"
-import {checkingAccount} from "../functions/transaction"
+import {useProfilePage} from "../hooks/useProfilePage"
+import {fakeInventoryStore} from "../mocks/fakeInventoryStore"
+import {ProfilePageAccountOverview} from "./ProfilePageAccountOverview"
+import {ProfilePageForm} from "./ProfilePageForm"
 
 export const ProfilePage = () => {
 	const {isConnected, lastName, firstName, isEditable, toggleIsEditable, navigate} =
 		useProfilePage()
+
+	const {checkingAccount, creditAccount, savingAccount} = fakeInventoryStore()
 
 	// todo could be extracted as a middleware for both login and profile pages
 	if (!isConnected) {
@@ -40,7 +42,7 @@ export const ProfilePage = () => {
 							{firstName} {lastName}
 						</p>
 					) : (
-						<EditForm
+						<ProfilePageForm
 							firstName={firstName}
 							lastName={lastName}
 							toggleIsEditable={toggleIsEditable}
@@ -65,9 +67,9 @@ export const ProfilePage = () => {
 				{/*TODO --> Transaction Table (Use mocks, do not implement the update feature)*/}
 				<h2 className={$sro.screenReadersOnly}>Accounts</h2>
 
-				<AccountContainer data={checkingAccount} />
-				<AccountContainer data={checkingAccount} />
-				<AccountContainer data={checkingAccount} />
+				<ProfilePageAccountOverview account={checkingAccount} />
+				<ProfilePageAccountOverview account={creditAccount} />
+				<ProfilePageAccountOverview account={savingAccount} />
 			</div>
 		</MainContainer>
 	)

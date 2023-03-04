@@ -1,8 +1,8 @@
 import React, {useCallback, useState} from "react"
 import {T_InputFactory} from "../types/T_InputFactory"
-import {useValidateInput} from "./UseValidateInput"
-import {useResetVisualFeedback} from "./UseResetVisualFeedback"
-import {useVisualSuccessFeedback} from "./UseVisualSuccessFeedback"
+import {useValidateInput} from "./useValidateInput"
+import {useResetVisualFeedback} from "./useResetVisualFeedback"
+import {useVisualSuccessFeedback} from "./useVisualSuccessFeedback"
 import {useVisualErrorFeedback} from "./useVisualErrorFeedback"
 
 export const useHandleInputStates = () => {

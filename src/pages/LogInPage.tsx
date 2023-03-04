@@ -2,7 +2,7 @@ import React from "react"
 import {PATH} from "../config.json"
 import {Navigate, useNavigate} from "react-router-dom"
 import $login from "../shared/login.module.scss"
-import LogInForm from "../container/LogInForm"
+import LoginPageForm from "./LoginPageForm"
 import {MainContainer} from "../container/MainContainer"
 import {useSelector} from "react-redux"
 
@@ -22,7 +22,7 @@ export const LogInPage = () => {
 			<section className={$login.container}>
 				<i className={`fa fa-user-circle ${$login.icon}`}></i>
 				<h1>Sign In</h1>
-				<LogInForm />
+				<LoginPageForm />
 			</section>
 		</MainContainer>
 	)

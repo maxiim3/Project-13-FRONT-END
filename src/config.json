@@ -5,7 +5,7 @@
 		"HOME": "/",
 		"LOGIN": "/login",
 		"PROFILE": "/profile",
-		"TRANSACTION": "/transaction"
+		"INVENTORY": "/transaction"
 	},
 	"API": {
 		"MOCK_USER": "http://localhost:5173/mockUsers.json",

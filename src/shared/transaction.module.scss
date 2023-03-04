@@ -1,6 +1,12 @@
 // ** TransactionPage Component
 [aria-label="Transaction Page"] {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
 	background: #e1e1e6;
+	gap: 80px;
 }
 
 // ** TransactionPage Component
@@ -10,12 +16,13 @@
 		direction: column;
 	}
 	justify-content: center;
+	width: 100%;
 	color: black;
 	border: 1px gray solid;
 	background-color: white;
 	gap: 8px;
-	padding-block: 48px;
-	margin-block: 12px;
+	padding-block: 40px;
+	margin-block: 0 12px;
 
 	p {
 		font: {
@@ -28,7 +35,7 @@
 
 	p:nth-of-type(2) {
 		font: {
-			size: 24px;
+			size: 32px;
 			weight: bold;
 		}
 		margin: 0;
@@ -36,103 +43,107 @@
 	}
 }
 
-// ** TransactionPage Component
 .table {
-	width: 80vw;
-	border-collapse: collapse;
-	margin-inline: auto;
+	font-size: clamp(12px, 2vw, 18px);
+	width: 100%;
 
-	tr {
-		display: grid;
+	container: table inline-size;
 
-		grid-template-areas:
-			"btn date desc amount balance"
-			"empty expend expend expend expend ";
+	@media screen and (width >= 650px) {
+		width: clamp(650px, 80vw, 720px);
+		margin-inline: auto;
+	}
 
-		td {
-			justify-self: start;
-		}
+	header,
+	article[aria-label="transaction"] {
+		font-weight: bold;
+		position: relative;
+		margin: 0;
+		padding: 0;
 
-		td,
-		th {
-			font-weight: bold;
+		ul {
+			display: flex;
+			flex-direction: row;
 			margin: 0;
-			padding: 0;
-			padding-block: 20px;
+			padding: 0 0 0 12px;
+			list-style: none;
 
-			&[aria-hidden="true"] {
+			&:before {
 				//visibility: hidden;
+				width: clamp(16px, 5vw, 32px);
+				margin: 0;
+				padding: 0;
+				content: "";
 			}
 
-			&[aria-label="Expend informations"],
-			&[aria-hidden="true"] {
-				//width: 24px;
-				background: red;
+			gap: 4px;
 
-				button {
-					width: 100%;
-					background: blue;
+			&[role="row"] {
+				&:first-of-type {
+					&:hover {
+						cursor: pointer;
+					}
 				}
 
-				grid-area: btn;
+				padding-block: 16px;
 			}
 
-			&[aria-label="Date"] {
-				grid-area: date;
+			li {
+				width: 25%;
 			}
+		}
+	}
 
-			&[aria-label="Description"] {
-				//width: 250px;
-				grid-area: desc;
-			}
+	article[aria-label="transaction"] {
+		border-bottom: 1px rgba(0, 0, 0, 0.65) solid;
 
-			&[aria-label="Amount"] {
-				grid-area: amount;
-			}
-
-			&[aria-label="Balance"] {
-				grid-area: balance;
-			}
+		&:last-of-type {
+			border: none;
 		}
 
 		aside {
-			//position: relative;
-			//top: 80px;
-			//left: -40vw;
 			display: flex;
-			align-items: start;
-			flex-direction: column;
-			grid-area: expend;
-			justify-self: start;
-			gap: 24px;
-			margin-block: 24px 12px;
-
-			p {
-				margin: 0;
-				padding: 0;
-			}
+			flex-direction: row;
+			justify-content: flex-start;
+			padding: 0 0 0 12px;
+			text-align: left;
 		}
 	}
 
-	// t body
-	tbody {
-		//width: 100%;
-		border: 1px solid black;
+	main {
+		border: 1px solid rgba(174, 171, 171, 0.81);
 		background-color: white;
+	}
 
-		// ** TransactionItem Component
-		// row of transaction
-		tr {
-			//position: relative;
-			//display: flex;
-			//justify-content: space-between;
-			//width: 100%;
-			border-bottom: 1px solid black;
-			// data cell
+	button {
+		box-sizing: border-box;
 
-			// hidden element
+		width: clamp(16px, 5vw, 32px); // Same as before element on ul's
+		margin: 0;
+		padding: 0;
+		border-collapse: collapse;
+		border: none;
+		background: none;
+
+		&[aria-label="expend"] {
+			position: absolute;
+			top: 16px;
+			left: 16px;
+
+			svg {
+				font: {
+					size: clamp(12px, 3vw, 28px);
+					weight: bolder;
+				}
+				stroke: {
+					width: 36px;
+				}
+			}
+		}
+
+		@media screen and (width >= 596px) {
+			top: 16px;
+			left: 12px;
 		}
 	}
 }
-
-$usePadding: 12px 24px;

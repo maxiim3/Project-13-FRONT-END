@@ -1,23 +1,35 @@
+[role=banner] {
+  padding: 5px 20px;
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 20px;
+  box-sizing: border-box;
   animation: anim 450ms 0ms ease-in-out both;
 }
 
 .navLinks {
   font-weight: bold;
+  display: flex;
+  align-items: center;
   margin-right: 0.5rem;
   text-decoration: none;
   color: #2c3e50;
-  display: flex;
   gap: 5px;
-  align-items: center;
 }
 .navLinks:hover {
   text-decoration: underline;
   color: #42b983;
+}
+
+@media (width >= 450px) {
+  .rightSideLinks {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
 }
 
 .logoWrapper {

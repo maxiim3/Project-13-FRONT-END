@@ -1,9 +1,9 @@
-import {useEditForm} from "../hooks/UseEditForm"
+import {useEditForm} from "../hooks/useEditForm"
 import $profile from "../shared/profile.module.scss"
-import {FieldSetWithLegend} from "./FieldSetWithLegend"
+import {FieldSetWithLegend} from "../container/FieldSetWithLegend"
+import {DefaultInput} from "../components/DefaultInput"
 import {Button} from "../components/Button"
 import React from "react"
-import {DefaultInput} from "../components/DefaultInput"
 
 interface EditFormProps {
 	firstName: string
@@ -11,7 +11,7 @@ interface EditFormProps {
 	toggleIsEditable: () => void
 }
 
-export function EditForm({firstName, lastName, toggleIsEditable}: EditFormProps) {
+export function ProfilePageForm({firstName, lastName, toggleIsEditable}: EditFormProps) {
 	const {
 		formRef,
 		firstNameInput,

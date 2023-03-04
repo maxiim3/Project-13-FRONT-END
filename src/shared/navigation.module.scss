@@ -1,39 +1,49 @@
 // Navigation
+[role="banner"] {
+	//width: 100vh;
+	padding: 5px 20px;
+}
 
 .container {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 5px 20px;
-	animation: anim 450ms 0ms ease-in-out both;
-	}
+	box-sizing: border-box;
 
+	animation: anim 450ms 0ms ease-in-out both;
+}
 
 .navLinks {
 	font-weight: bold;
+	display: flex;
+	align-items: center;
 	margin-right: 0.5rem;
 	text-decoration: none;
 	color: #2c3e50;
-	display: flex;
 	gap: 5px;
-	align-items: center;
 
 	&:hover {
 		text-decoration: underline;
 		color: #42b983;
-		}
 	}
+}
 
+.rightSideLinks{
+	@media (width >= 450px) {
+		display: flex;
+		flex-direction: row;
+		gap: 24px;}
+	}
 
 .logoWrapper {
 	display: flex;
 	align-items: center;
+
 	img {
 		width: 200px;
 		max-width: 100%;
-		}
 	}
-
+}
 
 @keyframes anim {
 	0% {
@@ -43,4 +53,3 @@
 		opacity: 1;
 	}
 }
-

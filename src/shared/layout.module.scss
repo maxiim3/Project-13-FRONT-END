@@ -2,14 +2,13 @@
 	display: grid;
 	min-height: 100vh;
 	grid-auto-rows: 60px auto 60px;
-
 	> header {
 		max-height: 100px;
 		animation: anim-top 800ms 1800ms ease-in-out both;
 	}
 
 	> main {
-		align-self: stretch;
+		//align-self: stretch;
 	}
 
 	> footer {

@@ -171,20 +171,6 @@ main:has([aria-label="profile page wrapper"]) {
 		}
 	}
 
-	[data-selector="cta"] {
-		button {
-			font-size: 1.1rem;
-			font-weight: bold;
-			display: block;
-			width: 100%;
-			margin-top: 1rem;
-			padding: 8px;
-			color: #fff;
-			border-color: #00bc77;
-			background-color: #00bc77;
-		}
-	}
-
 	// Responsive
 
 	@media (min-width: 720px) {
@@ -199,4 +185,11 @@ main:has([aria-label="profile page wrapper"]) {
 			}
 		}
 	}
+}
+
+.cta {
+	composes: button;
+	text-decoration: none;
+	padding: 8px 12px;
+	font-size: 1.1rem;
 }
