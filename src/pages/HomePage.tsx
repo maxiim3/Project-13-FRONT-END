@@ -3,9 +3,16 @@ import {MainContainer} from "../container/MainContainer"
 import $hero from "../shared/homeSectionHero.module.css"
 import $sro from "../shared/sro.module.scss"
 import $features from "../shared/homeSectionFeatures.module.css"
-import HomeFeaturedItem from "../components/HomeFeaturedItem"
-import {getRandomKey} from "../functions/getRandomKey()"
+import {HomePageFeaturedItem} from "./HomePageFeaturedItem"
+import {getRandomKey} from "../functions/getRandomKey"
 
+/**
+ * # HomePage
+ * @description Home Page
+ * @requires MainContainer
+ * @requires HomePageFeaturedItem
+ * @return {JSX.Element}
+ */
 export default () => (
 	<MainContainer
 		ariaLabel={"Home Page"}
@@ -26,7 +33,7 @@ export default () => (
 		</section>
 		<section className={$features.features}>
 			<h2 className={$sro.screenReadersOnly}>Features</h2>
-			<HomeFeaturedItem
+			<HomePageFeaturedItem
 				key={getRandomKey()}
 				title={"You are our #1 priority"}
 				description={
@@ -35,13 +42,13 @@ export default () => (
 				}
 				icon={"Chat"}
 			/>
-			<HomeFeaturedItem
+			<HomePageFeaturedItem
 				key={getRandomKey()}
 				title={"More savings means higher rates"}
 				description={"The more you save with us, the higher your interest rate will be!"}
 				icon={"Money"}
 			/>
-			<HomeFeaturedItem
+			<HomePageFeaturedItem
 				key={getRandomKey()}
 				title={"Security you can trust"}
 				description={

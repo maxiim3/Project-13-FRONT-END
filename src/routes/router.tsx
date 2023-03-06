@@ -4,20 +4,26 @@ import {ProfilePage} from "../pages/ProfilePage"
 import Error from "../pages/ErrorPage"
 import React from "react"
 import {createBrowserRouter, createRoutesFromElements, Navigate, Route} from "react-router-dom"
-import {getRandomKey} from "../functions/getRandomKey()"
+import {getRandomKey} from "../functions/getRandomKey"
 import {PATH} from "../config.json"
 import {MainLayout} from "../container/MainLayout"
-import {StoreProvider} from "../container/StoreProvider"
+import {StoreContainer} from "../container/StoreContainer"
 import {TransactionRecords} from "../pages/TransactionRecords"
 
+/**
+ * # Router
+ * @description Router of the application
+ * @requires createBrowserRouter
+ * @requires createRoutesFromElements
+ */
 export default createBrowserRouter(
 	createRoutesFromElements(
 		<Route
 			path={PATH.ROOT}
 			element={
-				<StoreProvider>
+				<StoreContainer>
 					<MainLayout />
-				</StoreProvider>
+				</StoreContainer>
 			}
 			errorElement={<Navigate to={PATH.ERROR} />}>
 			<Route
@@ -51,24 +57,3 @@ export default createBrowserRouter(
 		</Route>
 	)
 )
-/*import { Route, Navigate } from 'react-router-dom';
-
- function requireAuth(user) {
- if (!user) {
- return <Navigate to="/login" />;
- }
- }
-
- function MyProtectedComponent() {
- // ...
- }
-
- function MyRoutes({ user }) {
- return (
- <Route
- path="/protected"
- element={<MyProtectedComponent />}
- handle={() => requireAuth(user)}
- />
- );
- }*/

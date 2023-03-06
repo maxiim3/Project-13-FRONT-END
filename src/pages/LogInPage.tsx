@@ -6,15 +6,23 @@ import LoginPageForm from "./LoginPageForm"
 import {MainContainer} from "../container/MainContainer"
 import {useSelector} from "react-redux"
 
+/**
+ * # LogInPage
+ * @description Log In Page
+ * @requires MainContainer
+ * @requires LoginPageForm
+ * @return {JSX.Element}
+ * @constructor
+ */
 export const LogInPage = () => {
 	const navigate = useNavigate()
 	const {isConnected} = useSelector((state: any) => state.auth)
 
 	useEffect(() => {
 		if (!isConnected) {
-			navigate(PATH.LOGIN)// todo add catch error
+			navigate(PATH.LOGIN)
 		}
-	}, []) // todo add hooks for checking auth
+	}, [])
 
 	return (
 		<MainContainer

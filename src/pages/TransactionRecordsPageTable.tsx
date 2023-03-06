@@ -1,11 +1,24 @@
-import {mockedCheckingAccount} from "../mocks/mockedCheckingTransactions"
 import $transaction from "../shared/transaction.module.scss"
 import $sro from "../shared/sro.module.scss"
 import {TransactionItem} from "../components/TransactionItem"
-import {getRandomKey} from "../functions/getRandomKey()"
+import {getRandomKey} from "../functions/getRandomKey"
 import React from "react"
+import {T_TransactionConstructor} from "../mocks/T_TransactionConstructor"
+import {ArrayOfTransactionRecordsProps} from "../types/ArrayOfTransactionRecordsProps"
 
-export function TransactionRecordsPageTable({transactions}: {transactions: typeof mockedCheckingAccount}) {
+/**
+ * # TransactionRecordsPageTable
+ * @description Transaction Records Page Table
+ * @requires TransactionItem
+ * @param {T_TransactionConstructor[]} transactions
+ * @return {JSX.Element}
+ * @constructor
+ */
+export function TransactionRecordsPageTable({
+	transactions,
+}: {
+	transactions: T_TransactionConstructor[]
+}) {
 	return (
 		<section
 			role={"table"}
@@ -43,15 +56,19 @@ export function TransactionRecordsPageTable({transactions}: {transactions: typeo
 				</ul>
 			</header>
 			<main>
-				{transactions.transactions
-							 .sort((a, b) => b.date.getUTCDate() - a.date.getUTCDate())
-							 .map(data => (
-								 <TransactionItem
-									 key={getRandomKey()}
-									 transaction={data}
-								 />
-							 ))}
+				{transactions
+					.sort((a, b) => b.date.getUTCDate() - a.date.getUTCDate())
+					.map(data => (
+						<TransactionItem
+							key={getRandomKey()}
+							transaction={data}
+						/>
+					))}
 			</main>
 		</section>
 	)
+}
+
+TransactionRecordsPageTable.propTypes = {
+	transactions: ArrayOfTransactionRecordsProps,
 }

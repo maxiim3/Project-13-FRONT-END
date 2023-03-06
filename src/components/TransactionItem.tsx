@@ -3,9 +3,18 @@ import {IoIosArrowDown, IoIosArrowUp} from "react-icons/io"
 import $transaction from "../shared/transaction.module.scss"
 import {FaPen} from "react-icons/all"
 import {dateToUSFormat} from "../functions/dateToUSFormat"
-import {Transaction} from "../functions/createTransaction"
+import {T_TransactionConstructor} from "../mocks/T_TransactionConstructor"
+import PropTypes from "prop-types"
+import {TransactionItemProps} from "../types/TransactionItemProps"
 
-export function TransactionItem({transaction}: {transaction: Transaction}) {
+/**
+ * # TransactionItem
+ * @description This component is used to display the transaction in the Transaction Page
+ * @param {T_TransactionConstructor} transaction
+ * @return {JSX.Element}
+ * @constructor
+ */
+export function TransactionItem({transaction}: {transaction: T_TransactionConstructor}) {
 	const [showInformations, setShowInformations] = useState(false)
 	return (
 		<article
@@ -90,4 +99,8 @@ export function TransactionItem({transaction}: {transaction: Transaction}) {
 			)}
 		</article>
 	)
+}
+
+TransactionItem.propTypes = {
+	transaction: TransactionItemProps.isRequired,
 }

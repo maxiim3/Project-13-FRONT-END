@@ -7,6 +7,11 @@ type T_PayloadToUpdateUser = {
 	firstName?: string
 	lastName?: string
 }
+/**
+ * #userService
+ * @description userService encapsulates all the API methods related to the API
+ * @type {{registerNewUser: ({firstName, lastName, password, email}: T_UserSchema_For_API) => Promise<any>, getAllUsers: () => Promise<any>, updateUser: (payload: T_PayloadToUpdateUser) => Promise<any>, getUserProfile: (token?: string) => Promise<any>, logInUser: (props: {email: string, password: string}) => Promise<axios.AxiosResponse<any>>}}
+ */
 const userService = {
 	updateUser: async (payload: T_PayloadToUpdateUser) => {
 		const promise = await httpService().put(API["GET_&_UPDATE_USER"], payload, {

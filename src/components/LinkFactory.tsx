@@ -1,7 +1,19 @@
 import {NavLink} from "react-router-dom"
 import $nav from "../shared/navigation.module.css"
 import React, {ReactElement} from "react"
+import PropTypes from "prop-types"
 
+/**
+ * # LinkFactory
+ * @description A factory function that returns a link component.
+ * @param {object} props
+ * @param {string|React.ReactElement} [props.innerContent] - The content of the link.
+ * @param {string} props.path - The URL to link to.
+ * @param {string} [props.icon] - The class name of an icon to include.
+ * @param {string} [props.className] - The class name of the container element.
+ * @param {function} [props.onClick] - A function to call when the link is clicked.
+ * @returns {JSX.Element}
+ */
 export const LinkFactory = (props: {
 	innerContent?: string | ReactElement
 	path: string
@@ -26,4 +38,12 @@ export const LinkFactory = (props: {
 			{props.innerContent}
 		</NavLink>
 	)
+}
+
+LinkFactory.propTypes = {
+	innerContent: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+	path: PropTypes.string.isRequired,
+	icon: PropTypes.string,
+	className: PropTypes.string,
+	onClick: PropTypes.func,
 }

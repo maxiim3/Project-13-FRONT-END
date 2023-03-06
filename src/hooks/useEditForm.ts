@@ -4,24 +4,31 @@ import {useHandleInputStates} from "./useHandleInputStates"
 import {useUpdateUserDispatcher} from "./useUpdateUser"
 import userService from "../service/userService"
 
+/**
+ * # useEditForm
+ * @description Hook that handle the form and input states. Handle the submit event and the response from the service.
+ * @param {string} firstName
+ * @param {string} lastName
+ * @return {{formRef: React.MutableRefObject<HTMLFormElement>, lastNameValidation: (e: React.ChangeEvent<HTMLInputElement>, input: T_InputFactory.InputModel) => (void), firstNamePrompt: string, lastNamePrompt: string, setLastNamePrompt: (value: (((prevState: string) => string) | string)) => void, handleUpdateProfile: (e: any) => Promise<any>, firstNameValidation: (e: React.ChangeEvent<HTMLInputElement>, input: T_InputFactory.InputModel) => (void), lastNameInput: T_InputFactory.InputModel, setFirstNamePrompt: (value: (((prevState: string) => string) | string)) => void, firstNameInput: T_InputFactory.InputModel}}
+ */
 export function useEditForm(firstName: string, lastName: string) {
 	// Ref to target the form and handling submit
 	const formRef = useRef() as React.MutableRefObject<HTMLFormElement>
 	// Create a new Input
 	const firstNameInput = useRef(
 		createInput({
-						label: "First Name",
-						minLength: 4,
-						inputType: "text",
-					}),
+			label: "First Name",
+			minLength: 4,
+			inputType: "text",
+		})
 	).current
 	// Create a new Input
 	const lastNameInput = useRef(
 		createInput({
-						label: "Last Name",
-						minLength: 4,
-						inputType: "text",
-					}),
+			label: "Last Name",
+			minLength: 4,
+			inputType: "text",
+		})
 	).current
 
 	// Add placeholder to user input
@@ -65,15 +72,13 @@ export function useEditForm(firstName: string, lastName: string) {
 
 			updateUser(user)
 			return user
-		}
-		catch (e: any) {
+		} catch (e: any) {
 			const status = "error"
 			const message = e.response.data.message
 			console.warn(e.response.data.message)
 			firstNameInput.setResponse({status, message})
 			lastNameInput.setResponse({status, message})
-		}
-		finally {
+		} finally {
 			console.log("finally", firstNameInput.response, lastNameInput.response)
 		}
 	}

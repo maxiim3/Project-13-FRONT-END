@@ -1,11 +1,20 @@
 import {T_InputFactory} from "../types/T_InputFactory"
 import React from "react"
+import {InputPropType} from "../types/InputPropType"
 
+/**
+ * # DefaultInput
+ * @description Default input component for all inputs
+ * @param {T_InputFactory.InputModel} input
+ * @param {string} value
+ * @param {(e: any) => void} onChange
+ * @return {JSX.Element}
+ */
 export const DefaultInput = ({
-								 input,
-								 value,
-								 onChange,
-							 }: {
+	input,
+	value,
+	onChange,
+}: {
 	input: T_InputFactory.InputModel
 	value: string
 	onChange: (e: any) => void
@@ -17,18 +26,18 @@ export const DefaultInput = ({
 		type={input.inputType}
 		inputMode={
 			input.inputType === "email"
-			? "email"
-			: input.inputType === "number"
-			  ? "numeric"
-			  : "text"
+				? "email"
+				: input.inputType === "number"
+				? "numeric"
+				: "text"
 		}
 		required={true}
 		autoComplete={
 			input.inputType === "email"
-			? "email"
-			: input.inputType === "password"
-			  ? "current-password"
-			  : "on"
+				? "email"
+				: input.inputType === "password"
+				? "current-password"
+				: "on"
 		}
 		placeholder={
 			input.placeholder.length > 0 ? input.placeholder : `Enter your ${input.inputType}`
@@ -42,3 +51,9 @@ export const DefaultInput = ({
 		onChange={onChange}
 	/>
 )
+
+DefaultInput.prototype = {
+	input: InputPropType,
+	value: String,
+	onChange: Function,
+}

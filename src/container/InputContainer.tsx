@@ -3,10 +3,18 @@ import React, {useRef} from "react"
 import $input from "../shared/input.module.css"
 import {Label} from "../components/Label"
 import {useHandleInputStates} from "../hooks/useHandleInputStates"
-import {FieldSetWithLegend} from "./FieldSetWithLegend"
+import {FieldSetWithLegendContainer} from "./FieldSetWithLegendContainer"
 import {CheckboxInput} from "../components/CheckboxInput"
 import {DefaultInput} from "../components/DefaultInput"
+import {InputPropType} from "../types/InputPropType"
 
+/**
+ * # InputContainer
+ * @description Input Container encapsulates the logic for handling the type of input that is being rendered
+ * @param {T_InputFactory.InputModel} input
+ * @return {JSX.Element}
+ * @constructor
+ */
 export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
 	const {prompt, setPrompt, handleUpdateAndFeedback} = useHandleInputStates()
 
@@ -14,7 +22,7 @@ export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
 
 	if (isCheckbox)
 		return (
-			<FieldSetWithLegend
+			<FieldSetWithLegendContainer
 				appliedClass={$input.checkBoxWrapper}
 				legend={`Check to ${input.label}`}>
 				<CheckboxInput
@@ -31,11 +39,11 @@ export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
 					input={input}
 					prompt={prompt}
 				/>
-			</FieldSetWithLegend>
+			</FieldSetWithLegendContainer>
 		)
 
 	return (
-		<FieldSetWithLegend
+		<FieldSetWithLegendContainer
 			appliedClass={$input.inputWrapper}
 			legend={`Check to ${input.label}`}>
 			<Label
@@ -48,6 +56,10 @@ export const InputContainer = ({input}: {input: T_InputFactory.InputModel}) => {
 				value={prompt}
 				onChange={e => handleUpdateAndFeedback(e, input)}
 			/>
-		</FieldSetWithLegend>
+		</FieldSetWithLegendContainer>
 	)
+}
+
+InputContainer.propTypes = {
+	input: InputPropType.isRequired,
 }

@@ -6,17 +6,24 @@ import {useTransactionRecordsPage} from "../hooks/useTransactionRecordsPage"
 import {TransactionRecordsPageHeader} from "./TransactionRecordsPageHeader"
 import {TransactionRecordsPageTable} from "./TransactionRecordsPageTable"
 
+/**
+ * # TransactionRecords
+ * @description Transaction Records Page
+ * @requires MainContainer
+ * @requires TransactionRecordsPageHeader
+ * @return {JSX.Element}
+ */
 export const TransactionRecords = () => {
 	const {isConnected, listOfTransactions, navigate} = useTransactionRecordsPage()
 	useEffect(() => {
 		if (!listOfTransactions) {
 			navigate(PATH.PROFILE)
-		} // todo add catch error
+		}
 
 		if (!isConnected) {
 			navigate(PATH.LOGIN)
 		}
-	}, []) // todo add hooks for checking auth
+	}, [])
 
 	return (
 		<MainContainer

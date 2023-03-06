@@ -1,11 +1,18 @@
 import React from "react"
-import {getRandomKey} from "../functions/getRandomKey()"
+import {getRandomKey} from "../functions/getRandomKey"
 import $form from "../shared/form.module.css"
 import {InputContainer} from "../container/InputContainer"
 import {useLogIn} from "../hooks/useLogIn"
-import {FieldSetWithLegend} from "../container/FieldSetWithLegend"
+import {FieldSetWithLegendContainer} from "../container/FieldSetWithLegendContainer"
 import {useLogInFormRefs} from "../hooks/useLogInFormRefs"
 
+/**
+ * # LogInPageForm
+ * @description Log In Page Form
+ * @requires FieldSetWithLegendContainer
+ * @requires InputContainer
+ * @return {JSX.Element}
+ */
 export default () => {
 	const {inputCollection, formDescription, formTitle} = useLogInFormRefs()
 	const {handleRequestLogin, handleOnSubmit, formRef} = useLogIn(inputCollection)
@@ -18,7 +25,7 @@ export default () => {
 			aria-describedby={formDescription}
 			ref={formRef}
 			onSubmit={handleRequestLogin}>
-			<FieldSetWithLegend legend={formDescription}>
+			<FieldSetWithLegendContainer legend={formDescription}>
 				<InputContainer
 					key={getRandomKey()}
 					input={email}
@@ -36,7 +43,7 @@ export default () => {
 					onClick={handleOnSubmit}>
 					Sign in
 				</button>
-			</FieldSetWithLegend>
+			</FieldSetWithLegendContainer>
 		</form>
 	)
 }

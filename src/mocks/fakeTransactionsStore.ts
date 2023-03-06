@@ -1,6 +1,6 @@
-import {mockedCheckingAccount} from "./mockedCheckingTransactions"
-import {mockedCreditAccount} from "./mockedCreditAccount"
-import {mockedSavingAccount} from "./mockedSavingTransactions"
+import {fakeSavingTransactionRecords} from "./fakeSavingTransactionRecords"
+import {fakeCreditTransactionRecords} from "./mockedCreditAccount"
+import {fakeCheckingTransactionRecords} from "./mockedCheckingTransactions"
 
 /**
  * # fakeTransactionsStore
@@ -13,8 +13,8 @@ import {mockedSavingAccount} from "./mockedSavingTransactions"
  */
 export function fakeTransactionsStore() {
 	return {
-		checkingAccount: mockedCheckingAccount,
-		creditAccount: mockedCreditAccount,
-		savingAccount: mockedSavingAccount,
+		checkingAccount: fakeCheckingTransactionRecords,
+		creditAccount: fakeCreditTransactionRecords,
+		savingAccount: fakeSavingTransactionRecords,
 	}
 }

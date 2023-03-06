@@ -9,6 +9,15 @@ import {fakeTransactionsStore} from "../mocks/fakeTransactionsStore"
 import {ProfilePageAccountOverview} from "./ProfilePageAccountOverview"
 import {ProfilePageForm} from "./ProfilePageForm"
 
+/**
+ * # ProfilePage
+ * @description Profile Page
+ * @requires MainContainer
+ * @requires Button
+ * @requires ProfilePageForm
+ * @requires ProfilePageAccountOverview
+ * @return {JSX.Element}
+ */
 export const ProfilePage = () => {
 	const {isConnected, lastName, firstName, isEditable, toggleIsEditable, navigate} =
 		useProfilePage()
@@ -17,11 +26,9 @@ export const ProfilePage = () => {
 
 	useEffect(() => {
 		if (!isConnected) {
-			navigate(PATH.LOGIN) // todo add catch error
+			navigate(PATH.LOGIN)
 		}
-	}, []) // todo add hooks for checking auth
-
-	// todo add accessibility to form
+	}, [])
 
 	return (
 		<MainContainer
@@ -66,9 +73,9 @@ export const ProfilePage = () => {
 				{/*TODO --> Transaction Table (Use mocks, do not implement the update feature)*/}
 				<h2 className={$sro.screenReadersOnly}>Accounts</h2>
 
-				<ProfilePageAccountOverview account={checkingAccount} />
-				<ProfilePageAccountOverview account={creditAccount} />
-				<ProfilePageAccountOverview account={savingAccount} />
+				<ProfilePageAccountOverview transactions={checkingAccount} />
+				<ProfilePageAccountOverview transactions={creditAccount} />
+				<ProfilePageAccountOverview transactions={savingAccount} />
 			</div>
 		</MainContainer>
 	)

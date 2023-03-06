@@ -1,4 +1,4 @@
-import {T_AuthSlice} from "../types/t_AuthSlice"
+import {T_AuthSlice} from "../types/T_AuthSlice"
 import {pipe} from "./pipe"
 import {initialAuthState} from "../store/initialAuthState"
 import {getTokenFromSessionStorage} from "./getTokenFromSessionStorage"
@@ -10,10 +10,10 @@ import userService from "../service/userService"
  * # handleAuthOnLoad
  * @description:
  * 	- **Handle the auth state of the store when user land on the app.**
- * 	- 1. check for token in the session storage
- * 	- 2. will proceed to validation of the token
- * 	- 3. if token is valid then user is fetched from service and initiated in the store.
- * 	- 4. finally the store is updated.
+ *    * check for token in the session storage
+ *    * will proceed to validation of the token
+ *    * if token is valid then user is fetched from service and initiated in the store.
+ *    * finally the store is updated.
  * @return {Promise<T_AuthSlice>}
  */
 export const handleAuthOnLoad = async (): Promise<T_AuthSlice> => {

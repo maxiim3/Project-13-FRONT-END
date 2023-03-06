@@ -1,7 +1,13 @@
 import {T_InputFactory} from "../types/T_InputFactory"
-import {getRandomKey} from "./getRandomKey()"
+import {getRandomKey} from "./getRandomKey"
 import {textToCamelCase} from "./textToCamelCase"
 
+/**
+ * # Create Input
+ * @description Factory function for creating inputs
+ * @param {T_InputFactory.params} data
+ * @return {T_InputFactory.InputModel}
+ */
 export function createInput(data: T_InputFactory.params) {
 	const defaultMinimumCharacter = (inputType: T_InputFactory.typesOfInput) => {
 		switch (inputType) {

@@ -3,6 +3,11 @@ import {useMemo} from "react"
 import {useParams} from "react-router-dom"
 import {fakeTransactionsStore} from "../mocks/fakeTransactionsStore"
 
+/**
+ * # useTransactionRecordsPage
+ * @description Hook that handle the state of the Transaction Records Page
+ * @return {{isConnected: boolean, navigate: any, listOfTransactions: T_TransactionConstructor[] | null}}
+ */
 export const useTransactionRecordsPage = () => {
 	// Get the state from the Store
 	const {isConnected, user, navigate} = useStoreState()

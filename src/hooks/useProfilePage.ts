@@ -1,6 +1,11 @@
 import {useStoreState} from "./useStoreState"
 import {useMemo, useState} from "react"
 
+/**
+ * # useProfilePage
+ * @description Hook that handle the state of the Profile Page
+ * @return {{navigate: NavigateFunction, lastName: any, firstName: any, isEditable: boolean, isConnected: any, toggleIsEditable: () => void}}
+ */
 export const useProfilePage = () => {
 	// Get the state from the Store
 	const {isConnected, user, navigate} = useStoreState()

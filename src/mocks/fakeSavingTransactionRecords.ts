@@ -2,18 +2,18 @@ import {createTransaction} from "./createTransaction"
 import {T_TransactionConstructor} from "./T_TransactionConstructor"
 
 /**
- * # fakeCreditTransactionRecords
- * @description Mocked credit account transactions
+ * # fakeSavingTransactionRecords
+ * @description Fake data for the saving account
  * @type {any[]}
  */
-export let fakeCreditTransactionRecords: T_TransactionConstructor[] = []
+export let fakeSavingTransactionRecords: T_TransactionConstructor[] = []
 
 //<editor-fold desc="Add to aray">
 
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: Math.round(Math.random() * 10) * 3000 + 2000,
+		accountLabel: "saving",
+		accountBalance: Math.round(Math.random() * 10) * 3000 + 4000,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 50,
@@ -22,10 +22,10 @@ fakeCreditTransactionRecords.push(
 		},
 	})
 )
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: fakeCreditTransactionRecords.at(-1)!.balance,
+		accountLabel: "saving",
+		accountBalance: fakeSavingTransactionRecords[fakeSavingTransactionRecords.length - 1].balance,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 30,
@@ -34,10 +34,10 @@ fakeCreditTransactionRecords.push(
 		},
 	})
 )
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: fakeCreditTransactionRecords.at(-1)!.balance,
+		accountLabel: "saving",
+		accountBalance: fakeSavingTransactionRecords[fakeSavingTransactionRecords.length - 1].balance,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 40,
@@ -46,10 +46,10 @@ fakeCreditTransactionRecords.push(
 		},
 	})
 )
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: fakeCreditTransactionRecords.at(-1)!.balance,
+		accountLabel: "saving",
+		accountBalance: fakeSavingTransactionRecords[fakeSavingTransactionRecords.length - 1].balance,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 5,
@@ -58,10 +58,10 @@ fakeCreditTransactionRecords.push(
 		},
 	})
 )
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: fakeCreditTransactionRecords.at(-1)!.balance,
+		accountLabel: "saving",
+		accountBalance: fakeSavingTransactionRecords[fakeSavingTransactionRecords.length - 1].balance,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 12,
@@ -70,10 +70,10 @@ fakeCreditTransactionRecords.push(
 		},
 	})
 )
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: fakeCreditTransactionRecords.at(-1)!.balance,
+		accountLabel: "saving",
+		accountBalance: fakeSavingTransactionRecords[fakeSavingTransactionRecords.length - 1].balance,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 45,
@@ -82,10 +82,10 @@ fakeCreditTransactionRecords.push(
 		},
 	})
 )
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: fakeCreditTransactionRecords.at(-1)!.balance,
+		accountLabel: "saving",
+		accountBalance: fakeSavingTransactionRecords[fakeSavingTransactionRecords.length - 1].balance,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 29,
@@ -94,10 +94,10 @@ fakeCreditTransactionRecords.push(
 		},
 	})
 )
-fakeCreditTransactionRecords.push(
+fakeSavingTransactionRecords.push(
 	createTransaction({
-		accountLabel: "credit",
-		accountBalance: fakeCreditTransactionRecords.at(-1)!.balance,
+		accountLabel: "saving",
+		accountBalance: fakeSavingTransactionRecords[fakeSavingTransactionRecords.length - 1].balance,
 		accountTransactionsHistory: {
 			transactionType: "Electronic",
 			amount: 32,

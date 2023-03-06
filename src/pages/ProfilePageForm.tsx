@@ -1,16 +1,21 @@
 import {useEditForm} from "../hooks/useEditForm"
 import $profile from "../shared/profile.module.scss"
-import {FieldSetWithLegend} from "../container/FieldSetWithLegend"
+import {FieldSetWithLegendContainer} from "../container/FieldSetWithLegendContainer"
 import {DefaultInput} from "../components/DefaultInput"
 import {Button} from "../components/Button"
 import React from "react"
 
-interface EditFormProps {
-	firstName: string
-	lastName: string
-	toggleIsEditable: () => void
-}
-
+/**
+ * # ProfilePageForm
+ * @description Profile Page Form
+ * @param {string} firstName
+ * @param {string} lastName
+ * @param {() => void} toggleIsEditable
+ * @requires FieldSetWithLegendContainer
+ * @requires DefaultInput
+ * @requires Button
+ * @return {JSX.Element}
+ */
 export function ProfilePageForm({firstName, lastName, toggleIsEditable}: EditFormProps) {
 	const {
 		formRef,
@@ -24,9 +29,10 @@ export function ProfilePageForm({firstName, lastName, toggleIsEditable}: EditFor
 		firstNameValidation,
 		lastNameValidation,
 	} = useEditForm(firstName, lastName)
+
 	return (
 		<section className={$profile.formWrapper}>
-			<FieldSetWithLegend legend={`Update Your informations`}>
+			<FieldSetWithLegendContainer legend={`Update Your informations`}>
 				<form
 					className={$profile.formContainer}
 					aria-label={"Edit Profile"}
@@ -34,7 +40,6 @@ export function ProfilePageForm({firstName, lastName, toggleIsEditable}: EditFor
 					ref={formRef}
 					// onSubmit={submitUpdateRequest}
 				>
-					{/*TODO Refactor structure of Profile Page*/}
 					<div className={$profile.inputWrapper}>
 						<DefaultInput
 							input={firstNameInput}
@@ -77,7 +82,13 @@ export function ProfilePageForm({firstName, lastName, toggleIsEditable}: EditFor
 						/>
 					</div>
 				</form>
-			</FieldSetWithLegend>
+			</FieldSetWithLegendContainer>
 		</section>
 	)
+}
+
+type EditFormProps = {
+	firstName: string
+	lastName: string
+	toggleIsEditable: () => void
 }
