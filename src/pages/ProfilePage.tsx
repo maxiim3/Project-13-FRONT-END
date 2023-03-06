@@ -1,12 +1,11 @@
-import React from "react"
+import React, {useEffect} from "react"
 import $profile from "../shared/profile.module.scss"
 import $sro from "../shared/sro.module.scss"
-import {Navigate} from "react-router-dom"
 import {PATH} from "../config.json"
 import {MainContainer} from "../container/MainContainer"
 import {Button} from "../components/Button"
 import {useProfilePage} from "../hooks/useProfilePage"
-import {fakeInventoryStore} from "../mocks/fakeInventoryStore"
+import {fakeTransactionsStore} from "../mocks/fakeTransactionsStore"
 import {ProfilePageAccountOverview} from "./ProfilePageAccountOverview"
 import {ProfilePageForm} from "./ProfilePageForm"
 
@@ -14,13 +13,13 @@ export const ProfilePage = () => {
 	const {isConnected, lastName, firstName, isEditable, toggleIsEditable, navigate} =
 		useProfilePage()
 
-	const {checkingAccount, creditAccount, savingAccount} = fakeInventoryStore()
+	const {checkingAccount, creditAccount, savingAccount} = fakeTransactionsStore()
 
-	// todo could be extracted as a middleware for both login and profile pages
-	if (!isConnected) {
-		navigate(PATH.LOGIN)
-		return <Navigate to={PATH.LOGIN} />
-	}
+	useEffect(() => {
+		if (!isConnected) {
+			navigate(PATH.LOGIN) // todo add catch error
+		}
+	}, []) // todo add hooks for checking auth
 
 	// todo add accessibility to form
 

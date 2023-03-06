@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import {PATH} from "../config.json"
 import {Navigate, useNavigate} from "react-router-dom"
 import $login from "../shared/login.module.scss"
@@ -10,10 +10,11 @@ export const LogInPage = () => {
 	const navigate = useNavigate()
 	const {isConnected} = useSelector((state: any) => state.auth)
 
-	if (isConnected) {
-		navigate(PATH.PROFILE)
-		return <Navigate to={PATH.PROFILE} />
-	}
+	useEffect(() => {
+		if (!isConnected) {
+			navigate(PATH.LOGIN)// todo add catch error
+		}
+	}, []) // todo add hooks for checking auth
 
 	return (
 		<MainContainer

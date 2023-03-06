@@ -4,7 +4,7 @@ import $sro from "../shared/sro.module.scss"
 import {capitalizeFirstLetter} from "../functions/capitalizeFirstLetter"
 import React from "react"
 
-export function InventoryPageHeader(props: {transactions: typeof mockedCheckingAccount}) {
+export function TransactionRecordsPageHeader(props: {transactions: typeof mockedCheckingAccount}) {
 	return (
 		<header
 			role={"heading"}

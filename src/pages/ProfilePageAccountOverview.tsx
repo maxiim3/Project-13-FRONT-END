@@ -27,7 +27,7 @@ export function ProfilePageAccountOverview({account}: AccountContainerProps) {
 				<p>Available Balance</p>
 			</div>
 			<div>
-				<Link className={$style.cta} to={`${PATH.INVENTORY}/${account.label}`}>View transactions</Link>
+				<Link className={$style.cta} to={`${PATH.TRANSACTIONS}/${account.label}`}>View transactions</Link>
 			</div>
 		</article>
 	)

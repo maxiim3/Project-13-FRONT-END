@@ -8,7 +8,7 @@ import {getRandomKey} from "../functions/getRandomKey()"
 import {PATH} from "../config.json"
 import {MainLayout} from "../container/MainLayout"
 import {StoreProvider} from "../container/StoreProvider"
-import {InventoryPage} from "../pages/InventoryPage"
+import {TransactionRecords} from "../pages/TransactionRecords"
 
 export default createBrowserRouter(
 	createRoutesFromElements(
@@ -30,27 +30,18 @@ export default createBrowserRouter(
 				path={PATH.LOGIN}
 				element={<LogInPage />}
 			/>
+
 			<Route
 				key={getRandomKey()}
 				path={PATH.PROFILE}
 				element={<ProfilePage />}
 			/>
+
 			<Route
 				key={getRandomKey()}
-				path={`${PATH.INVENTORY}`}
-				errorElement={<Navigate to={PATH.PROFILE} />}
-				element={<InventoryPage />}>
-				<Route
-					key={getRandomKey()}
-					index
-					errorElement={<Navigate to={PATH.PROFILE} />}
-				/>
-				<Route
-					key={getRandomKey()}
-					path={`${PATH.INVENTORY}/:account`}
-					element={<InventoryPage />}
-				/>
-			</Route>
+				path={`${PATH.TRANSACTIONS}/:account`}
+				element={<TransactionRecords />}
+			/>
 
 			<Route
 				key={getRandomKey()}
@@ -60,3 +51,24 @@ export default createBrowserRouter(
 		</Route>
 	)
 )
+/*import { Route, Navigate } from 'react-router-dom';
+
+ function requireAuth(user) {
+ if (!user) {
+ return <Navigate to="/login" />;
+ }
+ }
+
+ function MyProtectedComponent() {
+ // ...
+ }
+
+ function MyRoutes({ user }) {
+ return (
+ <Route
+ path="/protected"
+ element={<MyProtectedComponent />}
+ handle={() => requireAuth(user)}
+ />
+ );
+ }*/

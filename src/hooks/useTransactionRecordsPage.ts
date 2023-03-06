@@ -1,9 +1,9 @@
 import {useStoreState} from "./useStoreState"
 import {useMemo} from "react"
 import {useParams} from "react-router-dom"
-import {fakeInventoryStore} from "../mocks/fakeInventoryStore"
+import {fakeTransactionsStore} from "../mocks/fakeTransactionsStore"
 
-export const UseInventoryPage = () => {
+export const useTransactionRecordsPage = () => {
 	// Get the state from the Store
 	const {isConnected, user, navigate} = useStoreState()
 	// Object Destructuring : Getting firstname and lastname from user (Store)
@@ -11,24 +11,26 @@ export const UseInventoryPage = () => {
 		return user
 	}, [user])
 
-	const inventory = fakeInventoryStore()
-	let transactions
+	const transactionRecords = fakeTransactionsStore()
+	let listOfTransactions
+
 	const params = useParams()
 	if (!params.account) {
-		transactions = null
-	} else {
+		listOfTransactions = null
+	}
+	else {
 		switch (params.account) {
 			case "checking":
-				transactions = inventory.checkingAccount
+				listOfTransactions = transactionRecords.checkingAccount
 				break
 			case "saving":
-				transactions = inventory.savingAccount
+				listOfTransactions = transactionRecords.savingAccount
 				break
 			case "credit":
-				transactions = inventory.creditAccount
+				listOfTransactions = transactionRecords.creditAccount
 				break
 			default:
-				transactions = null
+				listOfTransactions = null
 				break
 		}
 	}
@@ -36,10 +38,10 @@ export const UseInventoryPage = () => {
 	return {
 		isConnected,
 		navigate,
-		transactions: transactions,
+		listOfTransactions,
 	} as {
 		isConnected: boolean
 		navigate: any
-		transactions: typeof inventory.checkingAccount | null
+		listOfTransactions: typeof transactionRecords.checkingAccount | null
 	}
 }

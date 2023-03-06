@@ -5,7 +5,7 @@ import {TransactionItem} from "../components/TransactionItem"
 import {getRandomKey} from "../functions/getRandomKey()"
 import React from "react"
 
-export function InventoryPageTable({transactions}: {transactions: typeof mockedCheckingAccount}) {
+export function TransactionRecordsPageTable({transactions}: {transactions: typeof mockedCheckingAccount}) {
 	return (
 		<section
 			role={"table"}

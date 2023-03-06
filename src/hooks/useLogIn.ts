@@ -1,6 +1,5 @@
 import {createInput} from "../functions/createInput"
 import {useNavigate} from "react-router-dom"
-import {useSelector} from "react-redux"
 import {useLoginDispatcher} from "./useLoginDispatcher"
 import userService from "../service/userService"
 import {PATH} from "../config.json"
@@ -53,17 +52,19 @@ export const useLogIn = (inputCollection: Array<ReturnType<typeof createInput>>)
 				localStorage.setItem("token", token)
 			}
 			navigate(PATH.PROFILE)
-		} catch (e: any) {
+		}
+		catch (e: any) {
 			const status = "error"
 			const message = e.response.data.message
 			console.warn(e.response.data.message)
 			email.setResponse({status, message})
 			password.setResponse({status, message})
-		} finally {
+		}
+		finally {
 			console.log("finally", email.response, password.response)
 		}
 	}
 
-	return { handleRequestLogin, formRef, handleOnSubmit}
+	return {handleRequestLogin, formRef, handleOnSubmit}
 }
 
