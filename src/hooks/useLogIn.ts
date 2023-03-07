@@ -31,7 +31,8 @@ export const useLogIn = (inputCollection: Array<ReturnType<typeof createInput>>)
 				const that = document.getElementById(input.id) as HTMLInputElement
 				useVisualErrorFeedback(that, input)
 			})
-		} else {
+		}
+		else {
 			formRef.current?.dispatchEvent(new Event("submit", {cancelable: true, bubbles: true}))
 		}
 	}
@@ -52,7 +53,7 @@ export const useLogIn = (inputCollection: Array<ReturnType<typeof createInput>>)
 
 		try {
 			const loginResponse = await userService.logInUser(payload)
-			console.log(loginResponse)
+			// console.log(loginResponse)
 			const status = "success"
 			const message = "Login successful"
 			const token = loginResponse.data.body.token
@@ -60,7 +61,7 @@ export const useLogIn = (inputCollection: Array<ReturnType<typeof createInput>>)
 			password.setResponse({status, message})
 
 			const userProfileResponse = await userService.getUserProfile(token)
-			console.log(userProfileResponse)
+			// console.log(userProfileResponse)
 			const user = userProfileResponse.data.body
 
 			logUserIn(user)
@@ -68,14 +69,16 @@ export const useLogIn = (inputCollection: Array<ReturnType<typeof createInput>>)
 				localStorage.setItem("token", token)
 			}
 			navigate(PATH.PROFILE)
-		} catch (e: any) {
+		}
+		catch (e: any) {
 			const status = "error"
 			const message = e.response.data.message
 			console.warn(e.response.data.message)
 			email.setResponse({status, message})
 			password.setResponse({status, message})
-		} finally {
-			console.log("finally", email.response, password.response)
+		}
+		finally {
+			// console.log("finally", email.response, password.response)
 		}
 	}
 
