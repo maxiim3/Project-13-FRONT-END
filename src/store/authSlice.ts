@@ -7,16 +7,14 @@ import {initialAuthState} from "./initialAuthState"
  * @type {Slice<{isConnected: boolean, user: null}, {setUser: (state, action) => void, setIsConnected: (state, action) => void}, string>}
  */
 export const authSlice = createSlice({
-										  name: "auth",
-										  initialState: initialAuthState,
-										  reducers: {
-											  setUser: (state, action) => {
-												  state.user = action.payload
-											  },
-											  setIsConnected: (state, action) => {
-												  state.isConnected = action.payload
-											  },
-										  },
-									  })
-
-
+										 name: "auth",
+										 initialState: initialAuthState,
+										 reducers: {
+											 setUser: (state, action) => {
+												 state.user = action.payload
+											 },
+											 setIsConnected: (state, action) => {
+												 state.isConnected = action.payload
+											 },
+										 },
+									 })

@@ -1,11 +1,15 @@
 .container {
+
 	box-sizing: border-box;
-	width: 300px;
-	margin: 3rem auto 0;
 	padding: 2rem;
 	animation: anim 450ms 150ms ease-in-out both;
 	background-color: white;
 
+
+	@media (min-width: 768px) {
+		width: 300px;
+		margin: 3rem auto 0;
+		}
 	input {
 		display: block;
 
