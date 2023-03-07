@@ -1,6 +1,6 @@
 import React from "react"
 import {getRandomKey} from "../functions/getRandomKey"
-import $form from "../shared/form.module.css"
+import $form from "../sass/form.module.css"
 import {InputContainer} from "../container/InputContainer"
 import {useLogIn} from "../hooks/useLogIn"
 import {FieldSetWithLegendContainer} from "../container/FieldSetWithLegendContainer"

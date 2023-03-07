@@ -1,5 +1,5 @@
 import React, {ReactNode, useEffect, useState} from "react"
-import $style from "../shared/main.module.scss"
+import $style from "../sass/main.module.scss"
 import PropTypes from "prop-types"
 
 type T_MainContainer = {

@@ -1,6 +1,6 @@
 import React, {useEffect} from "react"
-import $profile from "../shared/profile.module.scss"
-import $sro from "../shared/sro.module.scss"
+import $profile from "../sass/profile.module.scss"
+import $sro from "../sass/sro.module.scss"
 import {PATH} from "../config.json"
 import {MainContainer} from "../container/MainContainer"
 import {Button} from "../components/Button"

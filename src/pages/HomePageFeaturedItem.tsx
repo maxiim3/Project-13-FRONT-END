@@ -1,5 +1,5 @@
 import React from "react"
-import $features from "../shared/homeSectionFeatures.module.css"
+import $features from "../sass/homeSectionFeatures.module.css"
 import PropTypes from "prop-types"
 
 /**

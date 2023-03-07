@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import {IoIosArrowDown, IoIosArrowUp} from "react-icons/io"
-import $transaction from "../shared/transaction.module.scss"
+import $transaction from "../sass/transaction.module.scss"
 import {FaPen} from "react-icons/all"
 import {dateToUSFormat} from "../functions/dateToUSFormat"
 import {T_TransactionConstructor} from "../mocks/T_TransactionConstructor"

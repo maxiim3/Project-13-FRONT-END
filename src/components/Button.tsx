@@ -1,5 +1,5 @@
 import React, {MouseEvent, ReactNode} from "react"
-import $profile from "../shared/profile.module.scss"
+import $profile from "../sass/profile.module.scss"
 import PropTypes from "prop-types"
 import {T_ButtonProps} from "../types/T_ButtonProps"
 

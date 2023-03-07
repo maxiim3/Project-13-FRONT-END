@@ -1,5 +1,5 @@
 import {useEditForm} from "../hooks/useEditForm"
-import $profile from "../shared/profile.module.scss"
+import $profile from "../sass/profile.module.scss"
 import {FieldSetWithLegendContainer} from "../container/FieldSetWithLegendContainer"
 import {DefaultInput} from "../components/DefaultInput"
 import {Button} from "../components/Button"

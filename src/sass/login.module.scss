@@ -10,22 +10,27 @@
 		width: 300px;
 		margin: 3rem auto 0;
 		}
+
 	input {
 		display: block;
 
 		}
 
-}
+	}
+
 
 .icon {
-	font-size: 5rem;
-}
+	font-size: 6rem;
+	margin: 0;
+	padding: 0;
+	}
+
 
 @keyframes anim {
 	0% {
 		opacity: 0;
-	}
+		}
 	100% {
 		opacity: 1;
+		}
 	}
-}

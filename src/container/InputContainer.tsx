@@ -1,6 +1,6 @@
 import {T_InputFactory} from "../types/T_InputFactory"
 import React, {useRef} from "react"
-import $input from "../shared/input.module.css"
+import $input from "../sass/input.module.css"
 import {Label} from "../components/Label"
 import {useHandleInputStates} from "../hooks/useHandleInputStates"
 import {FieldSetWithLegendContainer} from "./FieldSetWithLegendContainer"

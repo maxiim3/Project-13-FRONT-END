@@ -1,8 +1,8 @@
 import React from "react"
 import {HeaderBannerNav} from "../components/HeaderBannerNav"
-import $layout from "../shared/layout.module.css"
+import $layout from "../sass/layout.module.css"
 import {Outlet} from "react-router-dom"
-import $footer from "../shared/footer.module.scss"
+import $footer from "../sass/footer.module.scss"
 
 /**
  * # MainLayout

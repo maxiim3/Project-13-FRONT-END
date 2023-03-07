@@ -1,8 +1,8 @@
 import React from "react"
 import {MainContainer} from "../container/MainContainer"
-import $hero from "../shared/homeSectionHero.module.css"
-import $sro from "../shared/sro.module.scss"
-import $features from "../shared/homeSectionFeatures.module.css"
+import $hero from "../sass/homeSectionHero.module.css"
+import $sro from "../sass/sro.module.scss"
+import $features from "../sass/homeSectionFeatures.module.css"
 import {HomePageFeaturedItem} from "./HomePageFeaturedItem"
 import {getRandomKey} from "../functions/getRandomKey"
 

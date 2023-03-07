@@ -1,10 +1,11 @@
 import React from "react"
-import $nav from "../shared/navigation.module.css"
+import $nav from "../sass/navigation.module.css"
 import {useSelector} from "react-redux"
 import {LinkFactory} from "./LinkFactory"
 import {PATH} from "../config.json"
 import {useSignOut} from "../hooks/useSignOut"
-import $sro from "../shared/sro.module.scss"
+import $sro from "../sass/sro.module.scss"
+import {FaSignOutAlt, FaUserCircle} from "react-icons/all"
 
 /**
  * # HeaderBannerNav
@@ -45,12 +46,12 @@ export const HeaderBannerNav = () => {
 								tabIndex={-1}
 								className={$nav.rightSideLinks}>
 								<LinkFactory
-									icon={"fa-transactions-circle"}
+									icon={<FaUserCircle/>}
 									path={PATH.PROFILE}
 									innerContent={auth.user.firstName}
 								/>
 								<LinkFactory
-									icon={"fa-sign-out"}
+									icon={<FaSignOutAlt/>}
 									path={PATH.LOGIN}
 									innerContent={"Sign Out"}
 									onClick={handleLogOut}
@@ -61,7 +62,7 @@ export const HeaderBannerNav = () => {
 					return (
 						<div tabIndex={-1}>
 							<LinkFactory
-								icon={"fa-transactions-circle"}
+								icon={<FaUserCircle/>}
 								path={PATH.LOGIN}
 								innerContent={"Sign In"}
 							/>

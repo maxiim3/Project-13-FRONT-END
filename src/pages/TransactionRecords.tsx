@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import $sro from "../shared/sro.module.scss"
+import $sro from "../sass/sro.module.scss"
 import {PATH} from "../config.json"
 import {MainContainer} from "../container/MainContainer"
 import {useTransactionRecordsPage} from "../hooks/useTransactionRecordsPage"

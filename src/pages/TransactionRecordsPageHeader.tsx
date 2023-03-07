@@ -1,5 +1,5 @@
-import $transaction from "../shared/transaction.module.scss"
-import $sro from "../shared/sro.module.scss"
+import $transaction from "../sass/transaction.module.scss"
+import $sro from "../sass/sro.module.scss"
 import {capitalizeFirstLetter} from "../functions/capitalizeFirstLetter"
 import React from "react"
 import {T_TransactionConstructor} from "../mocks/T_TransactionConstructor"

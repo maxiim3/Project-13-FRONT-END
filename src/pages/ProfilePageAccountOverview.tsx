@@ -1,7 +1,7 @@
 import React, {useRef} from "react"
 import {calculateBalance} from "../functions/calculateBalance"
 import {getRandomKey} from "../functions/getRandomKey"
-import $style from "../shared/profile.module.scss"
+import $style from "../sass/profile.module.scss"
 import {Link} from "react-router-dom"
 import {PATH} from "../config.json"
 import {T_TransactionConstructor} from "../mocks/T_TransactionConstructor"

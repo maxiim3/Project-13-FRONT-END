@@ -1,10 +1,11 @@
 import React, {useEffect} from "react"
 import {PATH} from "../config.json"
 import {Navigate, useNavigate} from "react-router-dom"
-import $login from "../shared/login.module.scss"
+import $login from "../sass/login.module.scss"
 import LoginPageForm from "./LoginPageForm"
 import {MainContainer} from "../container/MainContainer"
 import {useSelector} from "react-redux"
+import {FaUserCircle, HiUserCircle} from "react-icons/all"
 
 /**
  * # LogInPage
@@ -19,8 +20,8 @@ export const LogInPage = () => {
 	const {isConnected} = useSelector((state: any) => state.auth)
 
 	useEffect(() => {
-		if (!isConnected) {
-			navigate(PATH.LOGIN)
+		if (isConnected) {
+			navigate(PATH.PROFILE)
 		}
 	}, [])
 
@@ -29,7 +30,7 @@ export const LogInPage = () => {
 			ariaDescription={"Login to your account"}
 			ariaLabel={"Sign In Page"}>
 			<section className={$login.container}>
-				<i className={`fa fa-user-circle ${$login.icon}`}></i>
+				<FaUserCircle className={$login.icon}/>
 				<h1>Sign In</h1>
 				<LoginPageForm />
 			</section>
